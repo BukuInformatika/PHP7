@@ -1,0 +1,14 @@
+\section{Embedded Script dan Non Embedded}
+\subsection{Embedded Script}
+  \item Berikut merupakan contoh dokumen HTML yang akan dihasilkan dengan menggunakan program/script PHP dalam embedded script
+    Ditampilkan dibawah ini  :
+    \lstinputlisting[firstline=1, lastline=12]{src/embedded_script.php}
+Script diatas menunjukkan contoh script PHP sederhana yang disebut dengan script embedded yang di sisipkan diantara tag-tag HTML. Script tersebut digunakan apabila isi dari suatu dokumen HTML diinginkan dari hasil eksekusi suatu script PHP. jika dilihat dari source-nya dengan menggunakan view source pada web browser maka tampilannya akan berupa seperti berikut
+    \lstinputlisting[firstline=14, lastline=22]{src/embedded_script.php}
+Source dokumen HTML yang tampil berupa dokumen HTML yang tidak lagi dari script PHP yang berisi script PHP karena semua menjadi tag HTML, karena pada saat dieksekusi maka bukan scriptnya yang dikirim tetapi eksekusi dari script tersebut yang dikirim 
+\subsection{Non Embedded}
+   \item Script PHP dibawah ini merupakan script murni dari pembuatan program dengan menggunakan PHP, tag dokumen HTML yang dihasilkan untuk membuat dokumen merupakan bagian dari script PHP. di tampilkan dibawah ini:
+  \lstinputlisting[firstline=24, lastline=35]{src/embedded_script.php}
+dan dibawah ini merupakan source dokumen HTML dari tampilan kode diatas  
+  \lstinputlisting[firstline=38, lastline=40]{src/embedded_script.php}
+Jika diperhatikan dokumen HTML tersebut tidak beraturan ditampilkan. Hal tersebut tidak menjadi masalah, yang penting adalah browser web dapat menampilkannya, karena dokumen tag HTML ini murni dihasilkan dari script PHP. 
