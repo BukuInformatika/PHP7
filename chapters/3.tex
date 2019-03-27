@@ -1,3 +1,22 @@
+\section{Aturan Dasar Penulisan Kode PHP}
+Seperti bahasa pemograman yang lain, PHP juga memiliki aturan penulisan seperti case sensitifity (perbedaan antara huruf besar dan kecil), cara mengakhiri sebuah baris perintah, dan pengaruh penggunakan spasi dalam membuat kode program PHP. Berikut adalah aturan dasar penulisan kode PHP:
+\subsection{Case Sensitivity (perbedaan huruf besar dan kecil) dalam PHP}
+PHP tidak membedakan huruf besar dan kecil (case insensitive) untuk penamaan fungsi (function), nama class, maupun keyword bawaan PHP seperti echo, while, dan class. Ketiga baris berikut akan dianggap sama dalam PHP:
+\begin{lstlisting}
+<?php
+Echo “Hello World”;
+ECHO “Hello World”;
+EchO “Hello World”;
+?>
+\end{lstlisting}
+Akan tetapi, PHP membedakan huruf besar dan huruf kecil (case sensitive) untuk penamaan variabel, sehingga akan dianggap sebagai variabel yang berbeda. Sering kali error terjadi dikarenakan salah menuliskan nama variabel, yang seharusnya menggunakan huruf kecil, ditulis dengan huruf besar.
+\begin{lstlisting}
+<?php
+$luqman="Luqman";
+echo $Luqman; // Notice: Undefined variable: Luqman
+?>
+\end{lstlisting}
+Untuk mengatasi perbedaan ini, disarankan menggunakan huruf kecil untuk seluruh kode PHP, termasuk variabel, fungsi maupun class. Jika membutuhkan nama variabel yang terdiri dari 2 kata, karakter spasi bisa digantikan dengan underscore.
 \section{Embedded Script dan Non Embedded}
 \subsection{Embedded Script}
   \item Berikut merupakan contoh dokumen HTML yang akan dihasilkan dengan menggunakan program/script PHP dalam embedded script
