@@ -17,6 +17,24 @@ echo $Luqman; // Notice: Undefined variable: Luqman
 ?>
 \end{lstlisting}
 Untuk mengatasi perbedaan ini, disarankan menggunakan huruf kecil untuk seluruh kode PHP, termasuk variabel, fungsi maupun class. Jika membutuhkan nama variabel yang terdiri dari 2 kata, karakter spasi bisa digantikan dengan underscore.
+\subsection{Karakter Spasi dan Tab dalam PHP}
+Dalam PHP, karakter seperti spasi dan tab diabaikan di dalam eksekusi program PHP. Anda boleh mencoba sebuah statement menjadi beberapa baris, atau menyatukan beberapa statement dalam sebuah baris yang lumayan panjang. Seperti contoh berikut:
+\begin{lstlisting}
+<?php
+echo "Saya belajar"; echo "Saya mengerti"; $nama="Men";
+?>
+\end{lstlisting}
+Baris statement itu sama dengan
+ \begin{lstlisting}
+<?php
+     echo "Saya belajar";
+     echo "Saya mengerti";
+     $nama = "Men";
+?>
+\end{lstlisting}
+Walaupun contoh yang pertama lebih menghemat baris, namun lebih disarankan untuk contoh kedua, karena kita mengusahakan agar setiap statement berada dalam satu baris saja, dan menambahkan beberapa spasi di awal untuk memudahkan membaca kode program.
+\par
+Keuntungan penghematan baris dan beberapa byte dari sebuah file PHP tidak akan sebanding dengan mencoba memahami kode program yang dibuat dalam beberapa hari kedepan. Menambahkan sebagian komentar pada bagian kode yang lebih rumit sebagai penjelasan juga sangat disarankan.
 \section{Embedded Script dan Non Embedded}
 \subsection{Embedded Script}
   \item Berikut merupakan contoh dokumen HTML yang akan dihasilkan dengan menggunakan program/script PHP dalam embedded script
