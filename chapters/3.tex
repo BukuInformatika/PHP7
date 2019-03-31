@@ -96,3 +96,55 @@ Tipe data float (disebut juga tipe data floating point, atau real number) adalah
 Tipe data String adalah tipe data untuk teks yang merupakan gabungan huruf, angka, whitespace (spasi), dan berbagai karakter. Fungsi ini digunakan untuk membuat identifier String/teks. Data string ditulis dengan mengapit data string tersebut dengan tanda petik tunggal atau tanda petik ganda. Tanda petik tunggal umumnya digunakan sebagai konstanta string.
 \subsection{Tipe Data Boolean}
 Tipe data boolean sebenarnya sangat sederhana. Tipe data ini hanya bisa diisi dengan salah satu dari 2 nilai: TRUE atau FALSE. Tipe data boolean banyak dipakai dalam percabangan kode program, atau untuk memutuskan apa yang harus dijalankan pada sebuah kondisi if else.
+
+\section{Operator PHP}
+Pada PHP, terdapat banyak operator  beberapa yang sering digunakan.
+\subsection{Operator Perbandigan}
+Seperti namanya, operator perbandingan digunakan untuk membandingkan beberapa buah nilai pada PHP dan hasilnya berupa booelan true yang berarti benar atau false yang berarti salah.
+Contoh:
+\begin{lstlisting}
+<?php
+if ($_POST['password'] == 'admin')
+{
+	echo 'Login sukses';
+}
+\end{lstlisting}
+
+\subsection{ Operator PHP Increment dan Decrement}
+Operator ini digunakan untuk menambahkan atau mengurangi nilai sebanyak 1 pada suatu variabel. 
+\subsection{Perbedaan Pre Increment dan Post Increment}
+Pada pre increment, nilai variabel akan ditambahkan 1 baru kemudian siap digunakan, sebaliknya, untuk  post increment, gunakan dulu nilai variabel kemudian baru ditambahkan dengan 1.
+Contoh 1:
+\begin{lstlisting}
+<?php
+$nomor = 1;
+while($nomor <= 5) {
+	echo $nomor++;
+}
+\end{lstlisting}
+Contoh diatas akan menghasilkan angka 12345.
+
+Contoh 2:
+\begin{lstlisting}
+<?php
+$nomor = 1;
+while($nomor <= 5) {
+	echo ++$nomor;
+}
+\end{lstlisting}
+Contoh diatas akan menghasilkan 23456.
+Lihat, perbedaanya terdapat pada ++ sebelum dan sesudah $nomor. 
+
+\subsection{Operator Assignment PHP}
+Sesuai namanya Assignment operator ini digunakan untuk memberikan nilai pada suatu variabel. Operator dasarnya adalah tanda sama dengan ( = ). Dalam praktiknya, operator ini sering digunakan ketika menjumlahkan nilai pada suatu perulangan, seperti ketika menjumlahkan data hasil query database.
+Contoh:
+\begin{lstlisting}
+<?php
+$sql 	= 'SELECT * FROM sales';
+$query 	= mysqli_query($sql);
+$total	= 0;
+while($row = mysqli_fetch_array($query))
+{
+	$total += $row['jml_bayar'];
+}
+\end{lstlisting}
