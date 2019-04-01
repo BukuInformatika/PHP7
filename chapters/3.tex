@@ -155,3 +155,32 @@ while($row = mysqli_fetch_array($query))
 	$total += $row['jml_bayar'];
 }
 \end{lstlisting}
+
+\section{Struktur Kontrol}
+PHP melakukan eksekusi dengan perintah mulai dari baris pertama kemudian ke baris berikutnya, sampai baris yang terakhir. Struktur kontrol digunakan dalam mengatur alur logika program agar sesuiai dengan kenyataan. Struktur kontrol akan melibatkan variabel, tipe data, dan operator. 
+\subsection{If Statement}
+If Statement  adalah pernyataan yang hanya akan dijalankan jika suatu kondisi bernilai benar, berfungsi untuk melakukan filter/penyaringan hasil berdasarkan kondisi tertentu. Contoh:
+\begin{lstlisting}
+If (kondisi) {
+    Pernyataan 1;
+    Pernyataan 2;
+    .....
+}else{
+    Pernyataan a;
+    Pernyataan b;
+    .....
+}
+\end{lstlisting}
+\subsection{Perulangan}
+Perulangan digunakan untuk mengeksekusi suatu pernyataan secara berulang-ulang. Contoh:
+\begin{lstlisting}
+While (kondisi){
+    Pernyataan yang diulang;
+    Counter;
+}
+\end{lstlisting}
+\subsection{Fungsi}
+Fungsi adalah serangkaian kode yang terdapat kegunaan khusus dan tertentu, dengan adanya fungsi ini pemrograman dapat dipermudah karena tidak harus menulis berulang-ulang rangkian kode yang sama. Demikian juga dalam pengembangan, jika terjadi kesalahan atau perbaikan kode maka pemrogram hanya dapat melakukan perbaikan pada fungsi tertentu saja, tidak perlu melakukan perbaikan pada banyak kode. Contoh:
+\begin{lstlisting}
+$tanggal = date(“format”);
+\end{lstlisting}
