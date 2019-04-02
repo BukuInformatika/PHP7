@@ -143,7 +143,7 @@ Contoh diatas akan menghasilkan 23456.
 Lihat, perbedaanya terdapat pada ++ sebelum dan sesudah $nomor. 
 
 \subsection{Operator Assignment PHP}
-Sesuai namanya Assignment operator ini digunakan untuk memberikan nilai pada suatu variabel. Operator dasarnya adalah tanda sama dengan ( = ). Dalam praktiknya, operator ini sering digunakan ketika menjumlahkan nilai pada suatu perulangan, seperti ketika menjumlahkan data hasil query database.
+Sesuai namanya operator assignment ini digunakan untuk memberikan nilai pada suatu variabel. Operator dasarnya adalah tanda sama dengan ( = ). Dalam praktiknya, operator ini sering digunakan ketika menjumlahkan nilai pada suatu perulangan, seperti ketika menjumlahkan data hasil query database.
 Contoh:
 \begin{lstlisting}
 <?php
@@ -154,9 +154,10 @@ while($row = mysqli_fetch_array($query))
 {
 	$total += $row['jml_bayar'];
 }
+?>
 \end{lstlisting}
 
-<<<<<<< HEAD
+
 \section{Lingkup Variabel}
 Variabel Scope (atau ruang lingkup variabel) adalah jangkauan kode program dimana perintah program masih bisa mengakses sebuah variabel. Variabel menunjukkan keberlakuan dan dikenalinya suatu variabel didalam script. Suatu variabel yang didefinisikan didalam sebuah fungsi maka variabel tersebut hanya akan dikenali dan digunakan hanya dalam fungsi tersebut variabel ini dikenal sebagai variabel lokal. karena hanya dikenal pada fungsi tempat variabel tersebut dinyatakan dan digunakan.
 
@@ -165,9 +166,19 @@ Jika kita mendefenisikan sebuah variabel pada satu file PHP, maka variabel terse
 Variabel yang didefenisikan di dalam sebuah fungsi, secara default tidak dapat diakses oleh kode program di luar fungsi tersebut. Dan begitu juga sebaliknya, variabel yang didefenisikan di luar fungsi, tidak bisa diakses dari dalam fungsi. Berikut jenis variabel berdasarkan lingkupnya:
 
 \subsection{Variabel Global}
+Variabel dan nilainya dikenali dan dapat digunakan oleh semua bagian script yang membutuhkannya. Semua variabel yang dibuat pada bagian utama script bukan pada bagian suatu fungsi, variabel variabel ini akan bersifat global. Pengertian global disini diartikan sebagai variabel dan data yang ada didalamnya hanya dikenali oleh seluruh bagian script, jika script dieksekusi oleh PHP.
+
+Fungsi-fungsi yang ingin menggunakan variabel dan data yang ada pada variabel global, maka dalam fungsi harus dideklarasikan global untuk nama variabel tersebut
+
+contohnya:
+\lstinputlisting[firstline=1, lastline=14]{src/lingkupVariabel.php}
+
+Variabel array global merupakan variabel asosiatif internal PHP yang mencatat semua variabel global yang dimiliki oleh suatu script. Proses penggunaan suatu variabel global dalam suatu fungsi dapat memanfaatkan array  berikut contohnya:
+\lstinputlisting[firstline=16, lastline=26]{src/lingkupVariabel.php}
+agar variabel dan data didalamnya dapat dipakai oleh script-script yang saling berhubungan dan membutuhkan maka variabel harus dinyatakan dengan cookie, method GET, ataupun method POST.
+
 \subsection{Variabel Lokal}
 \subsection{Variabel Statik}
-=======
 \section{Struktur Kontrol}
 PHP melakukan eksekusi dengan perintah mulai dari baris pertama kemudian ke baris berikutnya, sampai baris yang terakhir. Struktur kontrol digunakan dalam mengatur alur logika program agar sesuiai dengan kenyataan. Struktur kontrol akan melibatkan variabel, tipe data, dan operator. 
 \subsection{If Statement}
@@ -196,4 +207,33 @@ Fungsi adalah serangkaian kode yang terdapat kegunaan khusus dan tertentu, denga
 \begin{lstlisting}
 $tanggal = date(“format”);
 \end{lstlisting}
->>>>>>> 071d85fc6be3ad5e72dc4a8f84c2eeb0d01c12eb
+
+
+\subsection{Cookie dan Session}
+Dalam php kita kenal session dan cookies yang digunakan untuk menyimpan informasi pengguna. Secara umum memang sulit dibedakan karena dari faktor fungsinya bisa dikatakan sama. Cookies adalah informasi yang dapat disimpan di komputer kita dengan bantuan browser. 
+\par 
+Cookies dapat diakses kapanpun melalui halaman-halaman php selama cookies ini masih tersimpan. Cookies disimpan di komputer kita selama dalam sebuah file kecil yang diletakkan pada folder tertentu oleh browser. 
+\begin{lstlisting}
+<?php
+   $test = $_COOKIE["Test"];
+   echo $test;
+?> 
+\end{lstlisting}
+Penyimpanan informasi dengan cookies paling sering digunakan untuk:
+\begin{enumerate}
+\item Menyimpan username dan password dalam login agar pengguna tidak selalu harus mengisikannya pada saat membuka halaman.
+\item Untuk mencatat konfigurasi yang direkam oleh pengguna, seperti warna tema, jenis huruf, dan pilihan bahasa.
+\item Untuk mengetahui apakah pengunjung pernah datang atau belum ke halaman yang sedang dibuka.
+\end{enumerate}
+Session dapat diartikan sebagai sebuah variabel yang bersifat global yang diciptakan dalam server php pada saat sesi awal membuka sebuah halaman dan berlaku sampai anda menutup halaman tersebut.
+\begin{lstlisting}
+<?php
+    session_start();
+?> 
+\end{lstlisting}
+Session ini sering digunakan untuk:
+\begin{enumerate}
+\item Menyimpan informasi login yang berlaku hanya dalam satu sesi.
+\item Menyimpan catatan order barang dalam sistem transaksi online.
+\end{enumerate}
+
