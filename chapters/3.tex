@@ -237,3 +237,15 @@ Session ini sering digunakan untuk:
 \item Menyimpan catatan order barang dalam sistem transaksi online.
 \end{enumerate}
 
+\section{Koneksi Dengan Database MySQL}
+Caranya buatlah file PHP dengan nama koneksi.php selanjutnya simpan file PHP tersebut di dalam directory localhost kita.
+\begin{lstlisting}
+<?php 
+// isi nama host, username mysql, dan password mysql kita
+mysqli_connect("localhost","root","");
+ 
+// isikan dengan nama database yang akan di hubungkan
+mysqli_select_db("test");
+?>
+\end{lstlisting}
+Seperti penjelasan diatas function connect() isikan nama host kita, username mysql dan password mysql kita. Fungsi select db adalah fungsi yang di gunakan PHP untuk memilih database yang ingin kita hubungkan. Jadi kita tinggal memasukan nama database yang akan digunakan kita tinggal memasukkan file koneksi tersebut ke projek yang ada di localhost. 
