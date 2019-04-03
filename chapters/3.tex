@@ -178,7 +178,17 @@ Variabel array global merupakan variabel asosiatif internal PHP yang mencatat se
 agar variabel dan data didalamnya dapat dipakai oleh script-script yang saling berhubungan dan membutuhkan maka variabel harus dinyatakan dengan cookie, method GET, ataupun method POST.
 
 \subsection{Variabel Lokal}
+Variabel lokal adalah variabel dan data yang dimilikinya hanya dapat digunakan oleh fungsi tempat variabel digunakan dideklarasikan.
+Nama variabel bisa memiliki nama yang sama dengan nama variabel global yang ada pada script, tetapi tetap yang diacuh oleh fungsi adalah variabel lokal.
+Variable jenis ini di tulis di dalam function, dan hanya dapat di akses dari dalam function juga, dengan kata lain tidak bisa di akses di luar function, berikut contoh syntax nya :
+\lstinputlisting[firstline=31, lastline=44]{src/lingkupVariabel.php}
+Syntax diatas dapat terlihat jelas, jika Variable Local di akses di dalam function maka nilainya keluar yakni ‘5’, sedang jika di akses diluar function maka nilai itu tidak ada.
+
 \subsection{Variabel Statik}
+Variabel statik dalam fungsi yang memungkinkan nilai yang terahir yang ada didalamnya dapat dipertahankan, karena secara biasa sertiap fungsi selesai dieksekusi, pada saat dipanggil kembali nilai yang ada pada variabel dalam fungsi tersebut akan diinisialisasi lagi. Pernyataan static memungkinkan nilai yang terahir dipertahankan, sehingga pada saat dipanggil kembali fungsi tersebut masih memiliki nilai yang terahir. Biasanya ketika sebuah function selesai di jalankan dalam sebuah syntax PHP, semua variable di dalamnya akan di hapus, namun terkadang kita ingin agar variable tersebut tidak di hapus, akan tetapi akan kita gunakan secara lanjut, untuk itu kita harus menggunakan variable statis dalam case ini, berikut syntax nya :
+\lstinputlisting[firstline=48, lastline=63]{src/lingkupVariabel.php}
+Perbedaan dengan jenis variable lain ialah terletak, jika setiap function dipanggil, nilai yang ada di dalam variable adalah nilai terakhir, bukan nilai yang di deskripsikan seperti syntax diatas yakni ‘8’.
+
 \section{Struktur Kontrol}
 PHP melakukan eksekusi dengan perintah mulai dari baris pertama kemudian ke baris berikutnya, sampai baris yang terakhir. Struktur kontrol digunakan dalam mengatur alur logika program agar sesuiai dengan kenyataan. Struktur kontrol akan melibatkan variabel, tipe data, dan operator. 
 \subsection{If Statement}
