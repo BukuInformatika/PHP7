@@ -189,6 +189,7 @@ Variabel statik dalam fungsi yang memungkinkan nilai yang terahir yang ada didal
 \lstinputlisting[firstline=48, lastline=63]{src/lingkupVariabel.php}
 Perbedaan dengan jenis variable lain ialah terletak, jika setiap function dipanggil, nilai yang ada di dalam variable adalah nilai terakhir, bukan nilai yang di deskripsikan seperti syntax diatas yakni ‘8’.
 
+
 \section{Struktur Kontrol}
 PHP melakukan eksekusi dengan perintah mulai dari baris pertama kemudian ke baris berikutnya, sampai baris yang terakhir. Struktur kontrol digunakan dalam mengatur alur logika program agar sesuiai dengan kenyataan. Struktur kontrol akan melibatkan variabel, tipe data, dan operator. 
 \subsection{If Statement}
@@ -259,3 +260,17 @@ mysqli_select_db("test");
 ?>
 \end{lstlisting}
 Seperti penjelasan diatas function connect() isikan nama host kita, username mysql dan password mysql kita. Fungsi select db adalah fungsi yang di gunakan PHP untuk memilih database yang ingin kita hubungkan. Jadi kita tinggal memasukan nama database yang akan digunakan kita tinggal memasukkan file koneksi tersebut ke projek yang ada di localhost. 
+
+\section{Perulangan}
+Struktur perulangan (atau dalam bahasa inggris disebut dengan loop) adalah sebuah instruksi program yang bertujuan untuk mengulang beberapa baris perintah. Dalam merancang ini perulangan kode program, kita setidaknya harus mengetahui 3 komponen, yaitu kondisi awal dari perulangan, perintah program yang akan diulang, serta kondisi akhir dimana perulangan akan berhenti.
+\par
+Sebagai contoh sederhana untuk perulangan for, saya akan membuat program PHP untuk menampilkan 10 baris kalimat Test. Berikut adalah kode program yang digunakan:
+\begin{lstlisting}
+<?php
+for ($i= 1; $i <= 10; $i++)
+{
+   echo "Test";
+   echo "<br />";
+}
+?>
+\end{lstlisting}
