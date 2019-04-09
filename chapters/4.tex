@@ -1,0 +1,89 @@
+\section{Array}
+Array adalah variabel jamak, yang mempunyai banyak elemen yang diacu dengan satu nama yang sama. Array (atau larik dalam bahasa indonesia) bukanlah tipe data dasar seperti integer atau boolen, Array adalah sebuah tipe data bentukan yang terdiri dari kumpulan tipe data lainnya. Menggunakan array akan memudahkan dalam membuat kelompok data, serta menghemat penulisan dan penggunaan variabel. berikut sebagai contoh
+ \begin{lstlisting}
+<?php
+    $a = array("budi", 20, 58.5);
+?>
+\end{lstlisting}
+Array dalam PHP juga merupakan tipe data, bukan sekedar variabel. Berikut merupakan jenis array dalam PHP:
+\subsection{Array Berindeks}
+Array berindeks adalah array yang diindeks berdasarkan nomor/angka. Indeks array pada umumnya dimulai dari angka 0. Anda bebas mendefinisikan indeks dengan nilai yang Anda tentukan.
+
+\begin{table}[h]
+\caption(Array Berindeks}
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{10}&\textbf{20}&\textbf{30}&\textbf{40}&\textbf{50}\\
+\hline
+
+\begin{lstlisting}
+ $a[0]
+\end{lstlisting}  & 
+
+\begin{lstlisting}
+ $a[1]
+\end{lstlisting} &
+
+\begin{lstlisting}
+ $a[2]
+\end{lstlisting} &
+
+\begin{lstlisting}
+ $a[3]
+\end{lstlisting} &
+
+\begin{lstlisting}
+ $a[4]
+\end{lstlisting}\\
+\hline
+\end{tabular}
+\label{tabel : Array Berindeks}
+\end{table}
+
+
+Contoh diatas menunjukan array dengan 5 buah elemen. Elemen pertama ($a[0]) bernilai 10, elemen
+kedua ($a[1]) bernilai 20, dan seterusnya. Dalam array berindeks, antara kunci (indeks) dan nilai tidak
+memiliki keterkaitan.
+
+\subsection{Array Asosiatif}
+Array asosiatif adalah array yang diindeks berdasarkan nama tertentu. Letak perbedaan antara array berindeks dan array asosiatif adalah hanya terletak pada penamaan indeksnya saja.
+\begin{table}[h]
+\caption(Array Asosiatif}
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{10}&\textbf{20}&\textbf{30}&\textbf{40}&\textbf{50}\\
+\hline
+
+\begin{lstlisting}
+ $a["satu"]
+\end{lstlisting}  & 
+
+\begin{lstlisting}
+ $a["dua"]
+\end{lstlisting} &
+
+\begin{lstlisting}
+ $a["tiga"]
+\end{lstlisting} &
+
+\begin{lstlisting}
+ $a["empat"]
+\end{lstlisting} &
+
+\begin{lstlisting}
+ $a["lima"]
+\end{lstlisting}\\
+\hline
+\end{tabular}
+\label{tabel : Array Asosiatif}
+\end{table}
+
+Array diindeks berdasarkan nama, bukan berdasarkan nomor. Pada contoh diatas indeks array bertipe string. Pada umumnya array asosiatif digunakan untuk merepresentasikan sesuatu yang kunci dan nilainya memiliki keterkaitan, misalnya sebagai berikut.
+
+\begin{lstlisting}
+ <?php
+  $kota = array("jkt" => "jakarta", "bdg" => "bandung", "sby" => "surabaya");
+ ?>
+\end{lstlisting}  
