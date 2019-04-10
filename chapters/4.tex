@@ -87,3 +87,25 @@ Array diindeks berdasarkan nama, bukan berdasarkan nomor. Pada contoh diatas ind
   $kota = array("jkt" => "jakarta", "bdg" => "bandung", "sby" => "surabaya");
  ?>
 \end{lstlisting}  
+
+\subsection{File & Direktori}
+Dalam management file dan direktori, PHP menyediakan lebih 70 fungsi. Beberapa fungsi utama yang berhubungan dengan management file (create, write, append, dan delete), antara lain : Membuka dan membuat file.
+\begin{lstlisting}
+fopen ($namafile, $mode);
+\end{lstlisting}
+Keterangan :
+\$namafile merupakan nama file yang akan dibuat, sedangkan \$mode merupakan mode akses file. Contoh:
+\begin{lstlisting}
+<?php
+$namafile = "data.txt";
+$handle = fopen ($namafile, "mode");
+if (!handle) {
+	echo "<b>File yang ada buat belum ada</b>";
+} else {
+	echo "<b>File telah berhasil dibuka</b>";
+}
+fclose($handle);
+?>
+\end{lstlisting}
+
+
