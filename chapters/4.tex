@@ -87,3 +87,44 @@ Array diindeks berdasarkan nama, bukan berdasarkan nomor. Pada contoh diatas ind
   $kota = array("jkt" => "jakarta", "bdg" => "bandung", "sby" => "surabaya");
  ?>
 \end{lstlisting}  
+
+\section{Membuat Array}
+Array dapat dibuat melalui dua cara, yaitu dengan menggunakan fungsi array() atau dengan membuat elemen-elemen array dan mengisikan nilai-nilai ke dalam elemen-elemen tersebut secara langsung.
+Berikut ini contoh pembuatan array dengan menggunakan fungsi array().
+
+\item{Untuk Array Berindeks}
+\begin{lstlisting}
+<?php
+ $matakuliah = array ("pemograman web", "database", "keamanan jaringan",
+ "sistem informasi", "rekayasa perangkat lunak");
+ ?>
+\end{lstlisting}
+
+\item{Untuk Array Asosiatif}
+\begin{lstlisting}
+<?php
+$detailmk = array ("kode" => "TKB5218", "nama" => "pemograman web 2", "sks" => 2);
+?>
+\end{lstlisting}
+
+Berikut ini contoh pembuatan array dengan cara langsung membuat variabel array dan mengisikan nilai ke dalamnya.
+
+\item{Untuk array berindeks}
+\begin{lstlisting}
+<?php 
+$matakuliah[0] = "pemograman web"; 
+$matakuliah[1] = "database"; 
+$matakuliah[2] = "keamanan jaringan"; 
+$matakuliah[3] = "sistem informasi"; 
+$matakuliah[4] = "rekayasa perangkat lunak"; 
+?>
+\end{lstlisting}
+
+\item{Untuk array asosiatif}
+\begin{lstlisting}
+<?php 
+$detailmk["kode"] = "TKB5218"; 
+$detailmk["nama"] = "pemograman web 2"; 
+$detailmk["sks"] = 2; 
+?>
+\end{lstlisting}
