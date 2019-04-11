@@ -12,7 +12,7 @@ Array berindeks adalah array yang diindeks berdasarkan nomor/angka. Indeks array
 \begin{table}[h]
 \caption(Array Berindeks}
 \centering
-\begin{tabular}{|c|c|c|c|c|}
+\begin{tabular}
 \hline
 \textbf{10}&\textbf{20}&\textbf{30}&\textbf{40}&\textbf{50}\\
 \hline
@@ -129,7 +129,7 @@ $detailmk["nama"] = "pemograman web 2";
 $detailmk["sks"] = 2; 
 ?>
 \end{lstlisting}
-=======
+
 \subsection{File & Direktori}
 Dalam management file dan direktori, PHP menyediakan lebih 70 fungsi. Beberapa fungsi utama yang berhubungan dengan management file (create, write, append, dan delete), antara lain : Membuka dan membuat file.
 \begin{lstlisting}
@@ -150,5 +150,12 @@ fclose($handle);
 ?>
 \end{lstlisting}
 
+\subsection{Mengakses Elemen Array}
+Setelah array dibuat, langkah selanjutnya adalah mengakses nilai-nilai yang terkandung di dalamnya.
+Cara mengakses elemen array sangatlah sederhana. Karena elemen array berupa nilai, maka kita dapat
+memperlakukannya seperti layaknya variabel.
+Kita dapat menempatkan nilai yang diakses ke dalam suatu variabel atau dapat juga diproses secara
+langsung baik dalam perhitungan maupun ditampilkan langsung.
+Berikut ini adalah contoh mengakses nilai array ke dalam suatu variabel.
+\lstinputlisting[firstline=1, lastline=9]{src/array.php}
 
->>>>>>> 16fe6dfc45ca3e0e84a43ce30436cc80cbfd5643
