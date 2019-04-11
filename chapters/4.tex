@@ -88,6 +88,7 @@ Array diindeks berdasarkan nama, bukan berdasarkan nomor. Pada contoh diatas ind
  ?>
 \end{lstlisting}  
 
+<<<<<<< HEAD
 \section{Membuat Array}
 Array dapat dibuat melalui dua cara, yaitu dengan menggunakan fungsi array() atau dengan membuat elemen-elemen array dan mengisikan nilai-nilai ke dalam elemen-elemen tersebut secara langsung.
 Berikut ini contoh pembuatan array dengan menggunakan fungsi array().
@@ -128,3 +129,26 @@ $detailmk["nama"] = "pemograman web 2";
 $detailmk["sks"] = 2; 
 ?>
 \end{lstlisting}
+=======
+\subsection{File & Direktori}
+Dalam management file dan direktori, PHP menyediakan lebih 70 fungsi. Beberapa fungsi utama yang berhubungan dengan management file (create, write, append, dan delete), antara lain : Membuka dan membuat file.
+\begin{lstlisting}
+fopen ($namafile, $mode);
+\end{lstlisting}
+Keterangan :
+\$namafile merupakan nama file yang akan dibuat, sedangkan \$mode merupakan mode akses file. Contoh:
+\begin{lstlisting}
+<?php
+$namafile = "data.txt";
+$handle = fopen ($namafile, "mode");
+if (!handle) {
+	echo "<b>File yang ada buat belum ada</b>";
+} else {
+	echo "<b>File telah berhasil dibuka</b>";
+}
+fclose($handle);
+?>
+\end{lstlisting}
+
+
+>>>>>>> 16fe6dfc45ca3e0e84a43ce30436cc80cbfd5643
