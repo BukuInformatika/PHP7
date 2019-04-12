@@ -12,7 +12,7 @@ Array berindeks adalah array yang diindeks berdasarkan nomor/angka. Indeks array
 \begin{table}[h]
 \caption(Array Berindeks}
 \centering
-\begin{tabular}{|c|c|c|c|c|}
+\begin{tabular}
 \hline
 \textbf{10}&\textbf{20}&\textbf{30}&\textbf{40}&\textbf{50}\\
 \hline
@@ -88,6 +88,48 @@ Array diindeks berdasarkan nama, bukan berdasarkan nomor. Pada contoh diatas ind
  ?>
 \end{lstlisting}  
 
+<<<<<<< HEAD
+\section{Membuat Array}
+Array dapat dibuat melalui dua cara, yaitu dengan menggunakan fungsi array() atau dengan membuat elemen-elemen array dan mengisikan nilai-nilai ke dalam elemen-elemen tersebut secara langsung.
+Berikut ini contoh pembuatan array dengan menggunakan fungsi array().
+
+\item{Untuk Array Berindeks}
+\begin{lstlisting}
+<?php
+ $matakuliah = array ("pemograman web", "database", "keamanan jaringan",
+ "sistem informasi", "rekayasa perangkat lunak");
+ ?>
+\end{lstlisting}
+
+\item{Untuk Array Asosiatif}
+\begin{lstlisting}
+<?php
+$detailmk = array ("kode" => "TKB5218", "nama" => "pemograman web 2", "sks" => 2);
+?>
+\end{lstlisting}
+
+Berikut ini contoh pembuatan array dengan cara langsung membuat variabel array dan mengisikan nilai ke dalamnya.
+
+\item{Untuk array berindeks}
+\begin{lstlisting}
+<?php 
+$matakuliah[0] = "pemograman web"; 
+$matakuliah[1] = "database"; 
+$matakuliah[2] = "keamanan jaringan"; 
+$matakuliah[3] = "sistem informasi"; 
+$matakuliah[4] = "rekayasa perangkat lunak"; 
+?>
+\end{lstlisting}
+
+\item{Untuk array asosiatif}
+\begin{lstlisting}
+<?php 
+$detailmk["kode"] = "TKB5218"; 
+$detailmk["nama"] = "pemograman web 2"; 
+$detailmk["sks"] = 2; 
+?>
+\end{lstlisting}
+
 \subsection{File & Direktori}
 Dalam management file dan direktori, PHP menyediakan lebih 70 fungsi. Beberapa fungsi utama yang berhubungan dengan management file (create, write, append, dan delete), antara lain : Membuka dan membuat file.
 \begin{lstlisting}
@@ -108,4 +150,12 @@ fclose($handle);
 ?>
 \end{lstlisting}
 
+\subsection{Mengakses Elemen Array}
+Setelah array dibuat, langkah selanjutnya adalah mengakses nilai-nilai yang terkandung di dalamnya.
+Cara mengakses elemen array sangatlah sederhana. Karena elemen array berupa nilai, maka kita dapat
+memperlakukannya seperti layaknya variabel.
+Kita dapat menempatkan nilai yang diakses ke dalam suatu variabel atau dapat juga diproses secara
+langsung baik dalam perhitungan maupun ditampilkan langsung.
+Berikut ini adalah contoh mengakses nilai array ke dalam suatu variabel.
+\lstinputlisting[firstline=1, lastline=9]{src/array.php}
 
