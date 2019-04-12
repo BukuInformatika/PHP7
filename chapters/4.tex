@@ -12,7 +12,7 @@ Array berindeks adalah array yang diindeks berdasarkan nomor/angka. Indeks array
 \begin{table}[h]
 \caption(Array Berindeks}
 \centering
-\begin{tabular}{|c|c|c|c|c|}
+\begin{tabular}
 \hline
 \textbf{10}&\textbf{20}&\textbf{30}&\textbf{40}&\textbf{50}\\
 \hline
@@ -88,13 +88,55 @@ Array diindeks berdasarkan nama, bukan berdasarkan nomor. Pada contoh diatas ind
  ?>
 \end{lstlisting}  
 
+
+\section{Membuat Array}
+Array dapat dibuat melalui dua cara, yaitu dengan menggunakan fungsi array() atau dengan membuat elemen-elemen array dan mengisikan nilai-nilai ke dalam elemen-elemen tersebut secara langsung.
+Berikut ini contoh pembuatan array dengan menggunakan fungsi array().
+
+\item{Untuk Array Berindeks}
+\begin{lstlisting}
+<?php
+ $matakuliah = array ("pemograman web", "database", "keamanan jaringan",
+ "sistem informasi", "rekayasa perangkat lunak");
+ ?>
+\end{lstlisting}
+
+\item{Untuk Array Asosiatif}
+\begin{lstlisting}
+<?php
+$detailmk = array ("kode" => "TKB5218", "nama" => "pemograman web 2", "sks" => 2);
+?>
+\end{lstlisting}
+
+Berikut ini contoh pembuatan array dengan cara langsung membuat variabel array dan mengisikan nilai ke dalamnya.
+
+\item{Untuk array berindeks}
+\begin{lstlisting}
+<?php 
+$matakuliah[0] = "pemograman web"; 
+$matakuliah[1] = "database"; 
+$matakuliah[2] = "keamanan jaringan"; 
+$matakuliah[3] = "sistem informasi"; 
+$matakuliah[4] = "rekayasa perangkat lunak"; 
+?>
+\end{lstlisting}
+
+\item{Untuk array asosiatif}
+\begin{lstlisting}
+<?php 
+$detailmk["kode"] = "TKB5218"; 
+$detailmk["nama"] = "pemograman web 2"; 
+$detailmk["sks"] = 2; 
+?>
+\end{lstlisting}
+
 \subsection{File & Direktori}
 Dalam management file dan direktori, PHP menyediakan lebih 70 fungsi. Beberapa fungsi utama yang berhubungan dengan management file (create, write, append, dan delete), antara lain : Membuka dan membuat file.
 \begin{lstlisting}
 fopen ($namafile, $mode);
 \end{lstlisting}
 Keterangan :
-\$namafile merupakan nama file yang akan dibuat, sedangkan \$mode merupakan mode akses file. Contoh:
+namafile merupakan nama file yang akan dibuat, sedangkan mode merupakan mode akses file. Contoh:
 \begin{lstlisting}
 <?php
 $namafile = "data.txt";
@@ -108,6 +150,7 @@ fclose($handle);
 ?>
 \end{lstlisting}
 
+
 \subsection{Pemrograman Berorientasi Objek Dalam PHP }
 PHP pada awalnya hanya sekumpulan script sederhana. Dalam perkembangannya, dapat ditambahkan berbagai fitur pemrograman berorientasi objek. Hal ini dimulai sejak PHP 4. Dengan lahirnya PHP 5, fitur-fitur pemrograman berorientasi objek semakin mantap dan semakin cepat. Dengan PHP 7, script yang menggunakan konsep object-oriented akan lebih cepat dan lebih efisien.
 \par
@@ -120,3 +163,20 @@ Pemrograman berorientasi objek atau object-oriented programming (OOP) merupakan 
 \par
 PHP khususnya PHP 7 sudah mendukung beberapa konsep OOP. Akan tetapi PHP 7 tidak mendukung konsep Multiple-inheritance dan polymorphisme.
 
+\subsection{ Object Dan Class}
+Bagian dasar dari program yang berorientasi objek adalah objects. Secara tidak langsung  kita dapat memahami mengenai object ini. Sebagai contoh, sebuah mobil adalah objek. Sebuah mobil mempunyai properties atau bagian-bagian di dalamnya, seperti warna, mesin, roda, pintu dsb. Sebuah mobil juga dapat melakukan sesuatu, seperti mengisi bensin, menyalakan mesin, berjalan, mengerem dsb. 
+\par
+Biasanya object adalah sebuah kata benda. Orang adalah object. Demikian juga mobil, pohon, bunga, komputer, TV, buku dsb. Namun, object tidak selamanya sebuah objek fisik. Bisa saja sebuah benda abstrak, seperti account bank, sebuah file di komputer, database, pesan email, acara TV, dsb. 
+Class merupakan penjelasan atau deskripsi dari object. Di dalam class, terdapat penjelasan tentang suatu object termasuk properties yang dimilikinya dan kelakuan atau method yang bisa dilakukan oleh object. Sebagai contoh, class Orang. Class Orang tentu setidaknya memiliki beberapa bagian seperti tangan, kaki, mata, telinga dsb. Class Orang juga setidaknya harus bisa jalan, bisa loncat, bisa lari, bisa melihat, bisa bicara dsb. 
+\par
+Salah satu keuntungan program didefinisikan dengan konsep OOP adalah adanya pengkapsulan (encapsulation) program dalam class dan object, dimana sang programmer yang menggunakan class tidak perlu mengetahui isi dan jalannya class secara detail, hanya perlu tahu bagaimana cara menggunakannya. Sama halnya dengan sebuah mobil misalnya. Seorang pemilik mobil tentunya tidak perlu mengetahui bagian-bagian mobil secara menyeluruh. Dia tidak perlu mengetahui bagaimana mesin mobil melakukan pembakaran dan bagaimana mesin mobil bisa menggerakkan roda, dsb. Dia hanya perlu tahu bagaimana cara menjalankan mobil, bagaimana menghentikan mobil, dan fungsi mobil lainnya. 
+
+
+\subsection{Mengakses Elemen Array}
+Setelah array dibuat, langkah selanjutnya adalah mengakses nilai-nilai yang terkandung di dalamnya.
+Cara mengakses elemen array sangatlah sederhana. Karena elemen array berupa nilai, maka kita dapat
+memperlakukannya seperti layaknya variabel.
+Kita dapat menempatkan nilai yang diakses ke dalam suatu variabel atau dapat juga diproses secara
+langsung baik dalam perhitungan maupun ditampilkan langsung.
+Berikut ini adalah contoh mengakses nilai array ke dalam suatu variabel.
+\lstinputlisting[firstline=1, lastline=9]{src/array.php}
