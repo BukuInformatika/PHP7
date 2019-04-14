@@ -88,7 +88,7 @@ Array diindeks berdasarkan nama, bukan berdasarkan nomor. Pada contoh diatas ind
  ?>
 \end{lstlisting}  
 
-<<<<<<< HEAD
+
 \section{Membuat Array}
 Array dapat dibuat melalui dua cara, yaitu dengan menggunakan fungsi array() atau dengan membuat elemen-elemen array dan mengisikan nilai-nilai ke dalam elemen-elemen tersebut secara langsung.
 Berikut ini contoh pembuatan array dengan menggunakan fungsi array().
@@ -136,7 +136,7 @@ Dalam management file dan direktori, PHP menyediakan lebih 70 fungsi. Beberapa f
 fopen ($namafile, $mode);
 \end{lstlisting}
 Keterangan :
-\$namafile merupakan nama file yang akan dibuat, sedangkan \$mode merupakan mode akses file. Contoh:
+namafile merupakan nama file yang akan dibuat, sedangkan mode merupakan mode akses file. Contoh:
 \begin{lstlisting}
 <?php
 $namafile = "data.txt";
@@ -150,6 +150,28 @@ fclose($handle);
 ?>
 \end{lstlisting}
 
+
+\subsection{Pemrograman Berorientasi Objek Dalam PHP }
+PHP pada awalnya hanya sekumpulan script sederhana. Dalam perkembangannya, dapat ditambahkan berbagai fitur pemrograman berorientasi objek. Hal ini dimulai sejak PHP 4. Dengan lahirnya PHP 5, fitur-fitur pemrograman berorientasi objek semakin mantap dan semakin cepat. Dengan PHP 7, script yang menggunakan konsep object-oriented akan lebih cepat dan lebih efisien.
+\par
+Pemrograman berorientasi objek atau object-oriented programming (OOP) merupakan suatu inovasi dalam pemrograman yang menggunakan object dan class. Saat ini konsep OOP sudah semakin berkembang. Hampir setiap perguruan tinggi di dunia mengajarkan konsep OOP ini pada mahasiswanya. Pemrograman yang banyak dipakai dalam penerapan konsep OOP adalah Java dan C++. OOP bukanlah sekedar cara penulisan sintaks program yang berbeda, namun dapat lebih dari itu, OOP merupakan cara pandang dalam menganalisa sistem dan permasalahan pemrograman. Dalam OOP, setiap bagian dari program adalah object. Sebuah object mewakili suatu bagian program yang akan diselesaikan. Beberapa konsep OOP dasar, antara lain :
+\begin{enumerate}
+\item Encapsulation (Class dan Object)
+\item Inheritance (Penurunan sifat)
+\item Polymorphisme
+\end{enumerate}
+\par
+PHP khususnya PHP 7 sudah mendukung beberapa konsep OOP. Akan tetapi PHP 7 tidak mendukung konsep Multiple-inheritance dan polymorphisme.
+
+\subsection{ Object Dan Class}
+Bagian dasar dari program yang berorientasi objek adalah objects. Secara tidak langsung  kita dapat memahami mengenai object ini. Sebagai contoh, sebuah mobil adalah objek. Sebuah mobil mempunyai properties atau bagian-bagian di dalamnya, seperti warna, mesin, roda, pintu dsb. Sebuah mobil juga dapat melakukan sesuatu, seperti mengisi bensin, menyalakan mesin, berjalan, mengerem dsb. 
+\par
+Biasanya object adalah sebuah kata benda. Orang adalah object. Demikian juga mobil, pohon, bunga, komputer, TV, buku dsb. Namun, object tidak selamanya sebuah objek fisik. Bisa saja sebuah benda abstrak, seperti account bank, sebuah file di komputer, database, pesan email, acara TV, dsb. 
+Class merupakan penjelasan atau deskripsi dari object. Di dalam class, terdapat penjelasan tentang suatu object termasuk properties yang dimilikinya dan kelakuan atau method yang bisa dilakukan oleh object. Sebagai contoh, class Orang. Class Orang tentu setidaknya memiliki beberapa bagian seperti tangan, kaki, mata, telinga dsb. Class Orang juga setidaknya harus bisa jalan, bisa loncat, bisa lari, bisa melihat, bisa bicara dsb. 
+\par
+Salah satu keuntungan program didefinisikan dengan konsep OOP adalah adanya pengkapsulan (encapsulation) program dalam class dan object, dimana sang programmer yang menggunakan class tidak perlu mengetahui isi dan jalannya class secara detail, hanya perlu tahu bagaimana cara menggunakannya. Sama halnya dengan sebuah mobil misalnya. Seorang pemilik mobil tentunya tidak perlu mengetahui bagian-bagian mobil secara menyeluruh. Dia tidak perlu mengetahui bagaimana mesin mobil melakukan pembakaran dan bagaimana mesin mobil bisa menggerakkan roda, dsb. Dia hanya perlu tahu bagaimana cara menjalankan mobil, bagaimana menghentikan mobil, dan fungsi mobil lainnya. 
+
+
 \subsection{Mengakses Elemen Array}
 Setelah array dibuat, langkah selanjutnya adalah mengakses nilai-nilai yang terkandung di dalamnya.
 Cara mengakses elemen array sangatlah sederhana. Karena elemen array berupa nilai, maka kita dapat
@@ -158,4 +180,3 @@ Kita dapat menempatkan nilai yang diakses ke dalam suatu variabel atau dapat jug
 langsung baik dalam perhitungan maupun ditampilkan langsung.
 Berikut ini adalah contoh mengakses nilai array ke dalam suatu variabel.
 \lstinputlisting[firstline=1, lastline=9]{src/array.php}
-
