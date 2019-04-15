@@ -171,6 +171,22 @@ Class merupakan penjelasan atau deskripsi dari object. Di dalam class, terdapat 
 \par
 Salah satu keuntungan program didefinisikan dengan konsep OOP adalah adanya pengkapsulan (encapsulation) program dalam class dan object, dimana sang programmer yang menggunakan class tidak perlu mengetahui isi dan jalannya class secara detail, hanya perlu tahu bagaimana cara menggunakannya. Sama halnya dengan sebuah mobil misalnya. Seorang pemilik mobil tentunya tidak perlu mengetahui bagian-bagian mobil secara menyeluruh. Dia tidak perlu mengetahui bagaimana mesin mobil melakukan pembakaran dan bagaimana mesin mobil bisa menggerakkan roda, dsb. Dia hanya perlu tahu bagaimana cara menjalankan mobil, bagaimana menghentikan mobil, dan fungsi mobil lainnya. 
 
+\subsection{Properties Dan Method}
+Setiap class dapat memiliki properties yang kadang disebut juga attributes. Properties sebuah mobil misalnya warna, ukuran, harga dsb. Di dalam class, properties dapat dinyatakan dengan sebuah variabel. Misalnya warna, harga, dsb. Method merupakan sesuatu yang bisa dilakukan oleh object. Method dalam PHP sama halnya dengan sebuah fungsi. Method yang mungkin mempunyai
+sebuah mobil misalnya, method untuk menghidupkan mobil, menjalankan mobil, menghentikan mobil, dsb. Penamaan properties dan method memiliki sejumlah aturan yang sama dengan penamaan sebuah variabel atau fungsi. Akan tetapi berdasarkan kesepakatan
+(convention), penamaan properties dan method harus menggunakan camel Caps, dimana tiap kata diawali dengan huruf besar kecuali kata pertama, setiap kata digabung tanpa spasi atau under-score.
+\par
+Mendefinisikan Class bentuk umum untuk mendefinisikan sebuah class contohnya sebagai berikut:
+\begin{lstlisting}
+class namaClass
+{
+Deklarasikan dan definisikan properties di sini
+Definisikan semua method di sini
+} 
+\end{lstlisting}
+
+Penamaan namaClass pada dasarnya sama dengan penamaan variabel. Penamaannya bebas, boleh apa saja, kecuali stdClass. PHP sudah menggunakan nama stdClass sebagai nama class built-in. Isi tubuh class terletak di antara tanda kurung kurawal buka  dan kurawal tutup. Di tubuh class terdapat pendefinisian properties (variabel) dan method-method class. 
+
 
 \subsection{Mengakses Elemen Array}
 Setelah array dibuat, langkah selanjutnya adalah mengakses nilai-nilai yang terkandung di dalamnya.
