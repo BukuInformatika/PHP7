@@ -16,3 +16,17 @@ Hal yang perlu di isi dalam e-logbook ini antara lain:
 \item Kerusakan
 \item Target pekerjaan
 \end{enumerate}
+
+\subsection{Mengaktifkan MySQLi}
+Kenapa disini kita membahas tentang cara mengaktifkan MySQLi karena PHP 5 keatas default-nya menggunakan platform MySQLi untuk menggunakan berbagai fungsi pada database MySQL. MySQLi adalah sebuah class di PHP, jadi pastikan bahwa versi PHP kita sudah 5 keatas yaa.
+Keunggulan menggunakan MySQLi ketimbang dengan MySQL:
+\begin{enumerate}
+\item Dukungan baru untuk keperluan transaksi
+\item Prosedur interface
+\item Susunan laporan lebih tersusun
+\item Debugging lebih ditingkatkan
+\item Dapat memproses dalam waktu yang lebih singkat
+\end{enumerate}
+
+Nah itu beberapa keunggulan menggunakan MySQLi. Dan sekarang kita akan membahas cara mengaktifkan MySQLi pada PHP.
+Untuk mengaktifkan MySQLi, langkah pertama update dahulu versi PHP kita ke PHP 5 keatas. kemudian cari file php.ini biasanya terdapat di folder C lalu folder xampp lalu folder php kemudian buka file php.ini menggunakan editor seperti notepad++, sublime text, dan adobe dreamweaver. Tambahkan skrip extension=php\_mysqli.dll pada file php.ini. Namun pada file php.ini sudah ada skrip extension=php\_mysqli.dll dan terdapat tanda ; (tanpa tanda kutip) di depanya, maka kita cukup menghapus tanda ; tersebut lalu simpan file php.ini yang sudah di edit. Jangan lupa untuk restart server apachenya.
