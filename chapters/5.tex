@@ -17,19 +17,30 @@ Hal yang perlu di isi dalam e-logbook ini antara lain:
 \item Target pekerjaan
 \end{enumerate}
 
-\section{OOP Pada PHP}
-OOP (Object Oriented Programming) adalah suatu metode pemrograman yang berorientasi kepada objek. Tujuan dari OOP diciptakan adalah untuk mempermudah pengembangan program dengan cara mengikuti model yang telah ada di kehidupan sehari-hari. Jadi setiap bagian dari suatu permasalahan adalah objek, nah objek itu sendiri merupakan gabungan dari beberapa objek yang lebih kecil lagi. Saya ambil contoh Pesawat, Pesawat adalah sebuah objek. Pesawat itu sendiri terbentuk dari beberapa objek yang lebih kecil lagi seperti mesin, roda, baling-baling, kursi, dll. Pesawat sebagai objek yang terbentuk dari objek-objek yang lebih kecil saling berhubungan, berinteraksi, berkomunikasi dan saling mengirim pesan kepada objek-objek yang lainnya. Begitu juga dengan program, sebuah objek yang besar dibentuk dari beberapa objek yang lebih kecil, objek-objek itu saling berkomunikasi, dan saling berkirim pesan kepada objek yang lain.
-Dalam tutorial belajar OOP PHP ini kita akan membahas tentang pengertian class, object, property dan method. Keempat ‘keyword’ inilah yang menjadi pondasi dasar dari Pemrograman Berbasis Objek. Selain pengertian, kita juga akan mempelajari cara penulisannya dengan PHP.
-\subsection{Pengertian Class}
-Class didalam OOP digunakan untuk membuat kerangka kerja. bisa dikatakan sebagai library yang berisikan property dan method. dan object yang dihasilkan berdasarkan isi dari class. Cara penulisan class dengan awalan sintax "class" dan kemudian baru diikuti dengan nama classnya. berikut cara penulisan class
- \begin{lstlisting}
-<?php
-    class nama_class{
-	
-	isi dari class
-}
-?>
-\end{lstlisting}
-\subsection{Pengertian Object}
-\subsection{Pengertian Property}
-\subsection{Pengertian Method}
+
+\subsection{Mengaktifkan MySQLi}
+Kenapa disini kita membahas tentang cara mengaktifkan MySQLi karena PHP 5 keatas default-nya menggunakan platform MySQLi untuk menggunakan berbagai fungsi pada database MySQL. MySQLi adalah sebuah class di PHP, jadi pastikan bahwa versi PHP kita sudah 5 keatas yaa.
+Keunggulan menggunakan MySQLi ketimbang dengan MySQL:
+\begin{enumerate}
+\item Dukungan baru untuk keperluan transaksi
+\item Prosedur interface
+\item Susunan laporan lebih tersusun
+\item Debugging lebih ditingkatkan
+\item Dapat memproses dalam waktu yang lebih singkat
+\end{enumerate}
+
+Nah itu beberapa keunggulan menggunakan MySQLi. Dan sekarang kita akan membahas cara mengaktifkan MySQLi pada PHP.
+Untuk mengaktifkan MySQLi, langkah pertama update dahulu versi PHP kita ke PHP 5 keatas. kemudian cari file php.ini biasanya terdapat di folder C lalu folder xampp lalu folder php kemudian buka file php.ini menggunakan editor seperti notepad++, sublime text, dan adobe dreamweaver. Tambahkan skrip extension=php\_mysqli.dll pada file php.ini. Namun pada file php.ini sudah ada skrip extension=php\_mysqli.dll dan terdapat tanda ; (tanpa tanda kutip) di depanya, maka kita cukup menghapus tanda ; tersebut lalu simpan file php.ini yang sudah di edit. Jangan lupa untuk restart server apachenya.
+
+\subsection{Langkah Pertama}
+Agar dapat menjalankan sistem yang akan dibuat, kita harus menginstall aplikasi web server yang mendukung PHP ini serta aplikasi untuk database MySQL. Untungnya terdapat banyak aplikasi yang menghandle program ini, salah satunya yaitu XAMPP. Aplikasi XAMPP adalah aplikasi yang dapat menghandle banyak aplikasi lain yang dibutuhkan untuk pengembangan web. Nama XAMPP adalah singkatan dari X (huruf X berarti cross-platform), A (Apache web server), M (MySQL), P (PHP), dan P (Perl). Selain beberapa aplikasi tersebut XAMPP menyediakan modul lain seperti OpenSSL dan phpMyAdmin.
+\par
+Cara mendownload XAMPP terbaru bisa di situs resminya yaitu www.apachefriends.org. Untuk versi terbaru sudah support untuk PHP 7, silahkan pilih download sesuai dengan sistem operasi yang kita pakai.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{figures/xampp}
+\caption{Versi Terbaru XAMPP}
+\end{figure}
+
+
+
