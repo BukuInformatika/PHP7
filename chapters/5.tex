@@ -36,11 +36,84 @@ Untuk mengaktifkan MySQLi, langkah pertama update dahulu versi PHP kita ke PHP 5
 Agar dapat menjalankan sistem yang akan dibuat, kita harus menginstall aplikasi web server yang mendukung PHP ini serta aplikasi untuk database MySQL. Untungnya terdapat banyak aplikasi yang menghandle program ini, salah satunya yaitu XAMPP. Aplikasi XAMPP adalah aplikasi yang dapat menghandle banyak aplikasi lain yang dibutuhkan untuk pengembangan web. Nama XAMPP adalah singkatan dari X (huruf X berarti cross-platform), A (Apache web server), M (MySQL), P (PHP), dan P (Perl). Selain beberapa aplikasi tersebut XAMPP menyediakan modul lain seperti OpenSSL dan phpMyAdmin.
 \par
 Cara mendownload XAMPP terbaru bisa di situs resminya yaitu www.apachefriends.org. Untuk versi terbaru sudah support untuk PHP 7, silahkan pilih download sesuai dengan sistem operasi yang kita pakai.
+
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.5]{figures/xampp}
 \caption{Versi Terbaru XAMPP}
 \end{figure}
+
+File xampp-windows-x64-7.3.4-0-VC15-installer berukuran cukup besar, sekitar 149MB. Simpanlah file ini dimana kita inginkan.
+Setelah file XAMPP sudah di download, kita akan menginstallnya dengan cara double klik pada aplikasi tersebut dan akan mucul peringatan sebagai berikut.
+
+ \begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{figures/uac}
+\caption{User Account Control}
+\end{figure}
+
+Peringatan ini berkaitan dengan keamanan pada versi Windows Vista keatas dan jika XAMPP akan di install pada folder C mungkin akan terjadi pembatasan hak akses terhadap XAMPP yang berjalan tidak normal. Silahkan klik tombol OK untuk melanjutkan install maka akan muncul jendela awal install. Silahkan klik next.
+
+ \begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{figures/jendelaawal}
+\caption{Jendela Awal}
+\end{figure}
+
+Jendela selanjutnya adalah Select Component. Dalam jendela ini kita dapat memilih modul atau aplikasi apa saja yang akan kita install. Dalam tahap ini kita akan menceklis semua pilihan selanjutnya klik next untuk melanjutkan.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{figures/selectcomponent}
+\caption{Select Component}
+\end{figure}
+
+Jendela selanjutnya adalah Installation Folder. Dalam jendela ini kita dapat mengubah lokasi dimana kita akan menyimpan file-file XAMPP. Sebagai contoh kita akan menyimpan file XAMPP di drive E dengan nama folder xampp agar mudah di ingat. Untuk melanjutkan klik next.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{figures/installationfolder}
+\caption{Installation Folder}
+\end{figure}
+
+Jendela berikutnya adalah Bitnami for XAMPP. Dalam hal ini XAMPP menawarkan Bitnami sebagai cara cepat untuk install CMS seperti wordpress, drupal, dan joomla. Kemudian klik next.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{figures/bitnamiforxampp}
+\caption{Bitnami for XAMPP}
+\end{figure}
+
+Jendela berikutnya adalah pemberitahuan bahwa kita siap untuk menginstall XAMPP, Klik next dan XAMPP akan memulai  proses penginstallan.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{figures/readytoinstall}
+\caption{Ready to Install}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{figures/setup}
+\caption{Proses Penginstallan}
+\end{figure}
+
+Setelah proses penginstallan hampir selesai akan muncul jendela Windows Security Alert pada gambar 5.9 karena Windows Defender Firewall mendenteksi Apache HTTP Server. Untuk lanjut klik Allow access.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{figures/windowssecurityalert}
+\caption{Windows Security Alert}
+\end{figure}
+
+Proses penginstallan XAMPP sudah selesai pada gambar 5.10 maka akan muncul jendela Completing, dalam bagian ini kita dapat memilih untuk langsung menggunakan XAMPP atau tidak. Jika ingin langsung memakai, ceklis pada Do you want to start the Control Panel now? lalu klik finish. Jika tidak maka hilangkan ceklis dari  Do you want to start the Control Panel now? lalu klik finish.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{figures/selesaiinstall}
+\caption{Selesai Install}
+\end{figure}
+
 
 
 
