@@ -139,4 +139,155 @@ Jika ingin melihat versi PHP kita secara mendalam silahkan klik PHPInfo di pojok
 \caption{Versi PHP}
 \end{figure}
 
+\subsection{Membuat Database}
+Secara umum, tipe website bisa dibedakan menjadi dua yaitu web statis dan web dinamis. Web statis adalah web yang tetap dalam arti tampilan, navigasi, dan konten tidak dapat berubah dengan otomatis. Ketika kita ingin mengupdate sebuah kegiatan akan tetapi kita harus membuka file yang aslinya. Umumnya kegiatan yang ditampillkan tetap untuk jangka waktu satu hari - satu hari. Tipe website ini biasanya hanya berupa tag html saja, jadi diperlukan database yang digunakan untuk menyimpan data.
+\par
+Selain memanfaatkan tag html, website yang menggunakan flash juga bisa dikategorikan sebagai web statis, meskipun ada sebagian kecil yang sudah memiliki database dalam mengelola konten tidak perlu membuka sebuah file tertentu namum hanya menambahkan pada form yang telah disiapkan dan tersimpan di database. Sama halnya dengan e-logbook ini harus ada database yang dibuat.
+\begin{enumerate}
+\item Untuk membuat database kita pertama kali harus membuka aplikasi XAMPP yang sudah terinstall dan klik start pada Apache serta MySQL.
 
+ \begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{figures/controlpanel}
+\caption{XAMPP Control Panel}
+\end{figure}
+
+\item Jika sudah berjalan maka selanjutnya buka web browser kesayangan kita lalu ketikan https://localhost/phpmyadmin
+
+ \begin{figure}[c]
+\centering
+\includegraphics[scale=0.35]{figures/phpmyadmin}
+\caption{Halaman Utama}
+\end{figure}
+
+\item Setelah itu, klik databases lalu ketikkan elban lalu klik create
+
+ \begin{figure}[c]
+\centering
+\includegraphics[scale=0.35]{figures/databases}
+\caption{Create Database}
+\end{figure}
+
+\item Setelah database dibuat lalu belum ada table, klik SQL lalu masukan codingan berikut
+
+\begin{lstlisting}
+CREATE TABLE IF NOT EXISTS `logbook` (
+  `id_logbook` int(10) NOT NULL,
+  `tanggal` date NOT NULL,
+  `petugas` varchar(100) NOT NULL,
+  `vendor` varchar(100) NOT NULL,
+  `penerbangan` varchar(100) NOT NULL,
+  `kegiatan` varchar(500) NOT NULL,
+  `point_kerusakan` varchar(200) NOT NULL,
+  `target_pekerjaan` varchar(200) NOT NULL,
+  `id_user` tinyint(1) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `logbook`
+--
+
+INSERT INTO `logbook` (`id_logbook`, `tanggal`, `petugas`, `vendor`, `penerbangan`, `kegiatan`, `point_kerusakan`, `target_pekerjaan`, `id_user`) VALUES
+(2, '2019-03-31', 'M. Arif S, Vania & Rismayadi', 'Anto (CUPPS) Hisyam', 'Citylink KJT - KNO', 'PM di SCP 2 Inter Line 1', 'Master Clok Gate 4, XRAY BHS Internasional', 'Master Clock Gate 4', 12),
+(3, '2019-03-28', 'M. Arif S & Vania', 'Anto (CUPPS) Hisyam', 'KJT - KNO (Cancelled)', 'PM', 'Master clock gate 4 off', 'Master CloCk gate 4', 12);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pegawai`
+--
+
+CREATE TABLE IF NOT EXISTS `pegawai` (
+  `id_pegawai` int(10) NOT NULL,
+  `pegawai` varchar(100) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pegawai`
+--
+
+INSERT INTO `pegawai` (`id_pegawai`, `pegawai`) VALUES
+(1, 'M. Arif S'),
+(2, 'M. Arif S & Vania'),
+(3, 'M. Arif S, Vania & Hafiz'),
+(4, 'M. Arif S, Vania & Rismayadi'),
+(5, 'M. Arif S & Hafiz'),
+(6, 'M. Arif S & Rismayadi'),
+(7, 'M. Arif S, Vania, Hafiz & Rismayadi'),
+(8, 'Vania'),
+(9, 'Vania & Hafiz'),
+(10, 'Vania & Rismayadi'),
+(11, 'Vania, Hafiz & Rismayadi'),
+(12, 'Hafiz'),
+(13, 'Hafiz & Rismayadi'),
+(14, 'Rismayadi'),
+(15, 'M. Arif S, Hafiz & Rismayadi');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `id_user` tinyint(2) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(35) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `alamat` varchar(150) NOT NULL,
+  `hp` varchar(20) NOT NULL,
+  `level` tinyint(1) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id_user`, `username`, `password`, `nama`, `alamat`, `hp`, `level`) VALUES
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Luqman Nurfajri', 'Ciwarugotham', '089634530333', 1),
+(13, 'vania', '081c2ce8528c443cc4be69d4096c9778', 'Vania R', 'Kertajati', '-', 1);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `logbook`
+--
+ALTER TABLE `logbook`
+  ADD PRIMARY KEY (`id_logbook`);
+
+--
+-- Indexes for table `pegawai`
+--
+ALTER TABLE `pegawai`
+  ADD PRIMARY KEY (`id_pegawai`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id_user`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `logbook`
+--
+ALTER TABLE `logbook`
+  MODIFY `id_logbook` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `pegawai`
+--
+ALTER TABLE `pegawai`
+  MODIFY `id_pegawai` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id_user` tinyint(2) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+\end{lstlisting}
+
+\end{enumerate}
