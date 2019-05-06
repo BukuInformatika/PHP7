@@ -291,3 +291,75 @@ ALTER TABLE `user`
 \end{lstlisting}
 
 \end{enumerate}
+
+\section{Struktur Dasar PHP}
+Pada awalnya PHP adalh kependekan dari Personal Home Page (Situs personal). PHP pertama kali dibuat oleh Rasmus Lerdorf pada tahun 1995. Pada saat itu PHP masih bernama Form Interpreted (FI), yang wujudnya berupa sekumpulan skrip yang digunakan untuk mengolah data formulir dari web. Selanjutnya Rasmus merilis kode sumber tersebut untuk umum dan menamakannya PHP/FI. Dengan perilisan kode sumber ini menjadi sumber yang terbuka, maka banyak pemrogram yang ikut tertarik untuk ikut mengembangkan PHP.
+\par
+Pada November 1997, dirilis lah PHP/FI 2.0. Pada rilisan ini, interpreter PHP sudah diimplementasikan dalam program C. Dalam rilis ini disertakan juga modul-modul ekstensi yang meningkatkan kemampuan PHP/FI secara signifikan. Pada tahun 1997, ada sebuah perusahaan bernama Zend menulis ulang interpreter PHP menjadi lebih bersih, lebih baik, dan lebih cepat. Kemudian pada Juni 1998, perusahaan tersebut dapat merilis interpreter baru untuk PHP dan meresmikan rilis tersebut sebagai PHP 3.0 dan singkatan PHP diubah menjadi akronim berulang PHP: Hypertext Preprocessing. Pada pertengahan tahun 1999, Zend merilis interpreter PHP baru dan rilis tersebut dikenal dengan PHP 4.0. PHP 4.0 adalah versi PHP yang paling banyak dipakai pada awal abad ke-21. Versi ini banyak dipakai disebabkan kemampuannya untuk membangun aplikasi web kompleks tetapi tetap memiliki kecepatan dan stabilitas yang tinggi. 
+\par
+Pada Juni 2004, Zend merilis PHP 5.0. Dalam versi ini, inti dari interpreter PHP mengalami perubahan besar. Versi ini juga memasukkan model pemrograman berorientasi objek ke dalam PHP untuk menjawab perkembangan bahasa pemrograman ke arah paradigma berorientasi objek. Server web bawaan ditambahkan pada versi 5.4 untuk mempermudah pengembang menjalankan kode PHP tanpa menginstall software server. Versi terbaru dan stabil dari bahasa pemograman PHP saat ini adalah versi 7.0.16 dan 7.1.2 yang resmi dirilis pada tanggal 17 Februari 2017.
+
+\subsection{Variabel}
+Variabel ini digunakan untuk menyimpan sebuah nilai, data atau informasi.
+\begin{enumerate}
+\item Nama dari variabel diawali dengan tanda dollar \$.
+\item Panjang dari variabel tidak terbatas.
+\item Setelah tanda \$ .
+\item Tidak perlu untuk dideklarasikan atau compile.
+\item Tidak boleh mengandung spasi.
+\end{enumerate}
+Contoh:
+\begin{lstlisting}
+<?php
+$npm="1154054";
+$nama=' Luqman Nurfajri';
+echo"npm : ".npm ."<br>;
+echo"nama: &nama";
+?>
+\end{lstlisting}
+
+\subsection{Tipe Data}
+Pada PHP, tipe data dari variabel tergantung kondisi yang dialami oleh programmer itu sendiri. Akan tetapi secara otomatis dapat ditentukan oleh PHP. PHP telah mendukung 8 buah tipe data primitif yaitu:
+\begin{enumerate}
+\item Boolean.
+\item Integer.
+\item Float.
+\item String.
+\item Array.
+\item Object.
+\item Resource.
+\item NULL.
+\end{enumerate}
+Contoh:
+\begin{lstlisting}
+<?php
+$npm = "1154054";
+$nama = ' Luqman Nurfajri';
+$umur= 22;
+$nilai = 98.75;
+$status = TRUE;
+echo"NPM : ". $npm ."<br>;
+echo"Nama:  $nama";
+print "Umur : " . $umur; print "<br>";
+printf ("Nilai: %.3f<br>"), $nilai);
+if ($status)
+echo "Status: Aktif";
+else
+echo "Status: Tidak Aktif:;
+?>
+\end{lstlisting}
+
+\subsection{Konstanta}
+Konstanta adalah sebuah variabel konstan yang nilainya tidak berubah-ubah. Untuk mendefinisikan konstanta dalam PHP, menggunakan fungsi define() .
+Contoh:
+\begin{lstlisting}
+<?php
+define ("Nama", "Luqman Nurfajri";
+define ("Nilai", 98.75);
+echo"Nama : ".Nama .<br>;
+echo"Nilai: " .Nilai";
+?>
+\end{lstlisting}
+
+
+
