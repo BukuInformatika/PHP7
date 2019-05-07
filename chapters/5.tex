@@ -362,4 +362,138 @@ echo"Nilai: " .Nilai";
 \end{lstlisting}
 
 
+\subsection{Struktur Kondisi Dan Perulangan}
+\subsubsection{Struktur Kondisi IF}
+Kondisi IF adalah kondisi dimana sebuah data yang apabila kondisinya jika dan hanya nilai kebenaran dari hasil yang dibuat adalah benar, tetapi jika kondisi yah diuji salah maka sistem / program akan tidak menanggapi. Contoh:
+\begin{lstlisting}
+ if (bebas) {
+                pernyataan benar
+}
+\end{lstlisting}
+Dari skrip diatas parameter IF ini dapat kita gunakan dalam PHP, buatlah file dengan nama \textbf{bebas.php}.
+\begin{lstlisting}
+<html>
+<head>
+<title> Test Kondisi IF </title>
+   <body>
+    <?php
+         $bebas ="aih";
 
+         if ($bebas == "aih") {
+                echo "Buku ini semoga bermanfaat";
+          }
+         ?>
+    </body>
+</html>
+\end{lstlisting}
+ 
+
+\subsubsection{Struktur Kondisi IF ELSE}
+Kondisi IF ELSE  digunakan untuk jika kondisi kita memiliki dua pilihan dari hasil yang berbeda, contohnya hasil yang keluar bernilai benar (\textit{true}) dan bernilai salah (\textit{false}). Secara standar sintaks seperti ini:
+\begin{lstlisting}
+if (bebas) {
+    statement benar
+} else {
+     statement salah
+}
+\end{lstlisting}
+Dari sintaks diatas kita dapat menyimpulkan bahwa, apabila \textbf{bebas} mendapatkan nilai yang sesuai maka \textit{statement} akan benar maka program yang akan dieksekusi benar dan jika \textbf{bebas} mendapatkan nilai salah maka yang dieksekusi adalah \textit{statement} salah. Berikut contoh penggunaan kondisi IF dan ELSE. Buatlah file dengan nama\textbf{ ifelse.php}:
+\begin{lstlisting}
+<html>
+<head>
+<title>Test Kondisi IF dan ELSE </title>
+</head>
+    <body>
+        <?php
+            $makan = "eat";
+                 if ($makan=="eat")
+                      echo "Makan adalah bahasa indonesia dari eat";
+                 else {
+                      echo "Makan bukan bahasa indonesia dari EAt";
+                  }
+          ?>
+    </body>
+</html>
+\end{lstlisting}
+
+\subsubsection{Struktur Kondisi Switch Dan Case}
+Struktur kondisi SWITCH DAN CASE digunakan saat penyelesaian dari persoalan dengan jumlah kondisi yang banyak. Struktur ini dapat memeriksa nilai suatu variabel dengan SWITCH dan memeriksa kondisi dengan CASE. Contoh:
+\begin{lstlisting}
+switch ($var) {
+case '1' : statement-1; break;
+case '2' : statement-2; break;
+....
+}
+\end{lstlisting}
+Berikut contoh penggunaan kondisi SWITCH dan CASE. Buatlah file dengan nama\textbf{ swicase.php}:
+\begin{lstlisting}
+<?php
+$day =date ("D");
+switch ($day) {
+    case 'Sun' : $hari= "Minggu" ; break;
+    case 'Mon' : $hari= "Senin" ; break;
+    case 'Tue' : $hari= "Selasa" ; break;
+    case 'Wed' : $hari= "Rabu" ; break;
+    case 'Thu' : $hari= "Kamis" ; break;
+    case 'Fri' : $hari= "Jum'at" ; break;
+    case 'Sat' : $hari= "Sabtu" ; break;
+    default: $hari = "Kiamat" ;
+}
+echo "Hari ini hari <b>$hari</b>";
+?>
+\end{lstlisting}
+
+\subsubsection{Struktur Perulangan For}
+Struktur perulangan digunakan dalam kondisi membatasi perulangan. sebagai contoh disini kita mengulang kalimat "Semoga buku ini bermanfaat" sebanyak 50 kali. Buatlah file dengan nama \textbf{for.php}
+\begin{lstlisting}
+<?php
+for ($i= 1; $i <= 50; $i++)
+{
+   echo "Semoga buku ini bermanfaat";
+   echo "<br />";
+}
+?>
+\end{lstlisting}
+
+\subsubsection{Struktur Perulangan While}
+Struktur perulangan while digunakan pada saat banyaknya perulangan tidak dapat kita pastikan.
+Disini kita mengulang angka  1 sampai 14 sebagai contoh:  Buatlah file dengan nama \textbf{while.php}
+\begin{lstlisting}
+<?php
+$i=1;
+while ($i <= 14)
+{
+  echo "$i";
+  echo "<br />";
+  $i=$i+1;
+}
+?>
+\end{lstlisting}
+
+\subsubsection{Struktur Perulangan Do While}
+Struktur Do While sebenernya lanjutan dari perulangan While, perbedaan keduanya dilihat dari posisi pengecakan kondisi. Apabila perulangan While kondisi yang dicek di awal maka perulangan Do While di akhir perulangan. Disini kita mengulang angka  1 sampai 14 sebagai contoh:  Buatlah file dengan nama \textbf{dowhile.php}
+\begin{lstlisting}
+<?php
+$i=1;
+do
+{
+  echo "$i";
+  echo "<br />";
+  $i=$i+1;
+} while ($i <= 10);
+?>
+\end{lstlisting}
+
+\subsubsection{Struktur Perulangan Foreach}
+Array alah sebuah tipe data yang sering digunakan dalam membuat program menggunakan PHP. Kemampuan array dalam menyimpan banyak data dalam satu variabel akan sangat berguna untuk menyederhanakan dan menghemat penggunaan variabel. Perulangan Foreach adalah perulangan khusu untuk membaca nilai dari array. Buatlah file dengan nama \textbf{foreach.php}
+\begin{lstlisting}
+<?php
+$manusia = array("Luqman","Fajri","Ahmad","Fahmi","Mister");
+
+foreach ($manusia as $val)
+{
+   echo "$value";
+   echo "<br />";
+}
+?>
+\end{lstlisting}
