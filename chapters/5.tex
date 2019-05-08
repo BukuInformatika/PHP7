@@ -485,7 +485,7 @@ do
 \end{lstlisting}
 
 \subsubsection{Struktur Perulangan Foreach}
-Array alah sebuah tipe data yang sering digunakan dalam membuat program menggunakan PHP. Kemampuan array dalam menyimpan banyak data dalam satu variabel akan sangat berguna untuk menyederhanakan dan menghemat penggunaan variabel. Perulangan Foreach adalah perulangan khusu untuk membaca nilai dari array. Buatlah file dengan nama \textbf{foreach.php}
+Array alah sebuah tipe data yang sering digunakan dalam membuat program menggunakan PHP. Kemampuan array dalam menyimpan banyak data dalam satu variabel akan sangat berguna untuk menyederhanakan dan menghemat penggunaan variabel. Perulangan Foreach adalah perulangan khusus untuk membaca nilai dari array. Buatlah file dengan nama \textbf{foreach.php}
 \begin{lstlisting}
 <?php
 $manusia = array("Luqman","Fajri","Ahmad","Fahmi","Mister");
@@ -497,3 +497,59 @@ foreach ($manusia as $val)
 }
 ?>
 \end{lstlisting}
+
+\subsubsection{Struktur Break Dan Continue}
+Struktur \textbf{BREAK} dan \textbf{CONTINUE} sering digunakan dalam berbagai pekerjaan. Kedua struktur tersebut digunakan untuk mengatur bagaimana jalan dari pengulangan. Struktur \textbf{Break} digunakan untuk menghentikan jalan dari pengulangan sedangkan \textbf{continue} digunakan untuk menlanjutkan ke lankah selanjutnya tanpa menjalankan sisa perintah di dalam skrip pengulangan. Buatlah file dengan nama \textbf{breconti.php}
+\begin{lstlisting}
+<?php
+ 
+for ($i=1; $i <10 ; $i++) {
+    if ($i == 5)
+       continue;
+    if ($i == 8)
+       break;
+    echo "$i ";
+}
+ 
+?>
+\end{lstlisting}
+Jadi dari skrip diatas dapat disimpulkan bahwa perintah  \textbf{continue} akan melanjutkan proses pengulangan dan perintah \textbf{break} akan menghentikan proses. Dalam proses keduanya maka tidak akan muncul angka 5 dan 8 dalam proses tersebut.
+
+\subsection{Penanganan Form}
+Form dalam dunia pemrograman web sudah biasa ditulis menggunakan tag-tag HTML. Untuk halaman form yang berisi tag HTML atau tidak ada skrip lain. Ada tiga komponen penting dalam penangan form yaitu:
+\begin{enumerate}
+\item Method dalam sebuah form bertanggung jawab untuk dpat menentukan bagaimana data input yang akan di kirim. Ada dua macam method dalam penanganan form ini. Method POST dan GET. Buatlah file dengan nama \textbf{get.php}.
+\begin{lstlisting}
+<html>
+<body>
+	<form method="GET" action="">
+		<input type="text" name="nama"><br>
+		<input type="text" name="email"><br>
+		<input type="submit" name="submit" value="Submit">
+	</form>
+</body>
+</html>
+\end{lstlisting}
+Buatlah file dengan nama \textbf{post.php}.
+\begin{lstlisting}
+html>
+<body>
+	<form method="POST" action="">
+		<input type="text" name="nama"><br>
+		<input type="text" name="email"><br>
+		<input type="submit" name="submit" value="submit">
+	</form>
+
+	<?php
+	if ($_POST)
+	{
+		echo 'Nama: ' . $_POST['nama'];
+		echo '<br>';
+		echo 'Email: ' . $_POST['email'];
+	}
+	?>
+</body>
+</html>
+\end{lstlisting}
+\item Action dalam sebuah form bertanggung jawab untuk menentukan dimana data akan diolah. Biasanya action di dalam PHP digunakan untuk mengolah inputan yang diberikan. Jika action dikosongkan dapat dipastikan halaman yang sama pada prosesnya.
+\item Submit bertugas sebagai penanda pengiriman data dari form input yang diberikan. Jika tombol submit ditekan maka data dari form input akan dikirim kemudian diproses oleh atribut action yang digunakan.
