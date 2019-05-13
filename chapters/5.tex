@@ -442,7 +442,7 @@ switch ($day) {
 echo "Hari ini hari <b>$hari</b>";
 ?>
 \end{lstlisting}
-<<<<<<< HEAD
+
 \subsection{Pengertian Property}
 Property adalah data-data yang terdapat didalam class datanya berupa penjelasan sifat dari class. contohnya pada class mobil adalah warna, ukuran, merek dan lain-lain. Kegunaan property dalam sebuah class sama dengan kegunaan variabel di php. bisa digunakan untuk menyimpan data dan lain-lain. Berikut contoh penulisan sintaks property pada class.
  \begin{lstlisting}
@@ -455,7 +455,26 @@ Property adalah data-data yang terdapat didalam class datanya berupa penjelasan 
 }
 ?>
 \end{lstlisting}
-=======
+
+\subsection{Pengertian Method}
+Method pada dasarnya adalah function yang berada di dalam class. Seluruh fungsi dan sifat function bisa diterapkan ke dalam method, seperti argumen/parameter, mengembalikan nilai (dengan keyword return), dan lain-lain.
+Dari contoh di bawah  ini, function hidupkan_laptop() dan function matikan_laptop() adalah method dari class laptop. Seperti yang kita lihat, bahwa penulisan method di dalam PHP sama dengan cara penulisan function. Sebuah class tidak harus memiliki method.
+ \begin{lstlisting}
+<?php
+<?php
+class laptop {
+   function hidupkan_laptop() {
+   //... isi dari method hidupkan_laptop
+   }
+ 
+   function matikan_laptop() {
+   //... isi dari method matikan_laptop
+   }
+ 
+   ... //isi dari class laptop
+}
+?>
+\end{lstlisting}
 
 \subsubsection{Struktur Perulangan For}
 Struktur perulangan digunakan dalam kondisi membatasi perulangan. sebagai contoh disini kita mengulang kalimat "Semoga buku ini bermanfaat" sebanyak 50 kali. Buatlah file dengan nama \textbf{for.php}
@@ -567,4 +586,6 @@ html>
 \end{lstlisting}
 \item Action dalam sebuah form bertanggung jawab untuk menentukan dimana data akan diolah. Biasanya action di dalam PHP digunakan untuk mengolah inputan yang diberikan. Jika action dikosongkan dapat dipastikan halaman yang sama pada prosesnya.
 \item Submit bertugas sebagai penanda pengiriman data dari form input yang diberikan. Jika tombol submit ditekan maka data dari form input akan dikirim kemudian diproses oleh atribut action yang digunakan.
->>>>>>> 363ff4bc86d4c6e08b500ecdc0a390a9b15a4576
+
+
+
