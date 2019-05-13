@@ -17,19 +17,432 @@ Hal yang perlu di isi dalam e-logbook ini antara lain:
 \item Target pekerjaan
 \end{enumerate}
 
-\section{OOP Pada PHP}
-OOP (Object Oriented Programming) adalah suatu metode pemrograman yang berorientasi kepada objek. Tujuan dari OOP diciptakan adalah untuk mempermudah pengembangan program dengan cara mengikuti model yang telah ada di kehidupan sehari-hari. Jadi setiap bagian dari suatu permasalahan adalah objek, nah objek itu sendiri merupakan gabungan dari beberapa objek yang lebih kecil lagi. Saya ambil contoh Pesawat, Pesawat adalah sebuah objek. Pesawat itu sendiri terbentuk dari beberapa objek yang lebih kecil lagi seperti mesin, roda, baling-baling, kursi, dll. Pesawat sebagai objek yang terbentuk dari objek-objek yang lebih kecil saling berhubungan, berinteraksi, berkomunikasi dan saling mengirim pesan kepada objek-objek yang lainnya. Begitu juga dengan program, sebuah objek yang besar dibentuk dari beberapa objek yang lebih kecil, objek-objek itu saling berkomunikasi, dan saling berkirim pesan kepada objek yang lain.
-Dalam tutorial belajar OOP PHP ini kita akan membahas tentang pengertian class, object, property dan method. Keempat ‘keyword’ inilah yang menjadi pondasi dasar dari Pemrograman Berbasis Objek. Selain pengertian, kita juga akan mempelajari cara penulisannya dengan PHP.
-\subsection{Pengertian Class}
-Class didalam OOP digunakan untuk membuat kerangka kerja. bisa dikatakan sebagai library yang berisikan property dan method. dan object yang dihasilkan berdasarkan isi dari class. Cara penulisan class dengan awalan sintax "class" dan kemudian baru diikuti dengan nama classnya. berikut cara penulisan class
- \begin{lstlisting}
+
+\subsection{Mengaktifkan MySQLi}
+Kenapa disini kita membahas tentang cara mengaktifkan MySQLi karena PHP 5 keatas default-nya menggunakan platform MySQLi untuk menggunakan berbagai fungsi pada database MySQL. MySQLi adalah sebuah class di PHP, jadi pastikan bahwa versi PHP kita sudah 5 keatas yaa.
+Keunggulan menggunakan MySQLi ketimbang dengan MySQL:
+\begin{enumerate}
+\item Dukungan baru untuk keperluan transaksi
+\item Prosedur interface
+\item Susunan laporan lebih tersusun
+\item Debugging lebih ditingkatkan
+\item Dapat memproses dalam waktu yang lebih singkat
+\end{enumerate}
+
+Nah itu beberapa keunggulan menggunakan MySQLi. Dan sekarang kita akan membahas cara mengaktifkan MySQLi pada PHP.
+Untuk mengaktifkan MySQLi, langkah pertama update dahulu versi PHP kita ke PHP 5 keatas. kemudian cari file php.ini biasanya terdapat di folder C lalu folder xampp lalu folder php kemudian buka file php.ini menggunakan editor seperti notepad++, sublime text, dan adobe dreamweaver. Tambahkan skrip extension=php\_mysqli.dll pada file php.ini. Namun pada file php.ini sudah ada skrip extension=php\_mysqli.dll dan terdapat tanda ; (tanpa tanda kutip) di depanya, maka kita cukup menghapus tanda ; tersebut lalu simpan file php.ini yang sudah di edit. Jangan lupa untuk restart server apachenya.
+
+\subsection{Cara Install XAMPP}
+Agar dapat menjalankan sistem yang akan dibuat, kita harus menginstall aplikasi web server yang mendukung PHP ini serta aplikasi untuk database MySQL. Untungnya terdapat banyak aplikasi yang menghandle program ini, salah satunya yaitu XAMPP. Aplikasi XAMPP adalah aplikasi yang dapat menghandle banyak aplikasi lain yang dibutuhkan untuk pengembangan web. Nama XAMPP adalah singkatan dari X (huruf X berarti cross-platform), A (Apache web server), M (MySQL), P (PHP), dan P (Perl). Selain beberapa aplikasi tersebut XAMPP menyediakan modul lain seperti OpenSSL dan phpMyAdmin.
+\par
+Cara mendownload XAMPP terbaru bisa di situs resminya yaitu www.apachefriends.org. Untuk versi terbaru sudah support untuk PHP 7, silahkan pilih download sesuai dengan sistem operasi yang kita pakai.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{figures/xampp}
+\caption{Versi Terbaru XAMPP}
+\end{figure}
+
+File xampp-windows-x64-7.3.4-0-VC15-installer berukuran cukup besar, sekitar 149MB. Simpanlah file ini dimana kita inginkan.
+Setelah file XAMPP sudah di download, kita akan menginstallnya dengan cara double klik pada aplikasi tersebut dan akan mucul peringatan sebagai berikut.
+
+ \begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{figures/uac}
+\caption{User Account Control}
+\end{figure}
+
+Peringatan ini berkaitan dengan keamanan pada versi Windows Vista keatas dan jika XAMPP akan di install pada folder C mungkin akan terjadi pembatasan hak akses terhadap XAMPP yang berjalan tidak normal. Silahkan klik tombol OK untuk melanjutkan install maka akan muncul jendela awal install. Silahkan klik next.
+
+ \begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{figures/jendelaawal}
+\caption{Jendela Awal}
+\end{figure}
+
+Jendela selanjutnya adalah Select Component. Dalam jendela ini kita dapat memilih modul atau aplikasi apa saja yang akan kita install. Dalam tahap ini kita akan menceklis semua pilihan selanjutnya klik next untuk melanjutkan.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{figures/selectcomponent}
+\caption{Select Component}
+\end{figure}
+
+Jendela selanjutnya adalah Installation Folder. Dalam jendela ini kita dapat mengubah lokasi dimana kita akan menyimpan file-file XAMPP. Sebagai contoh kita akan menyimpan file XAMPP di drive E dengan nama folder xampp agar mudah di ingat. Untuk melanjutkan klik next.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{figures/installationfolder}
+\caption{Installation Folder}
+\end{figure}
+
+Jendela berikutnya adalah Bitnami for XAMPP. Dalam hal ini XAMPP menawarkan Bitnami sebagai cara cepat untuk install CMS seperti wordpress, drupal, dan joomla. Kemudian klik next.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{figures/bitnamiforxampp}
+\caption{Bitnami for XAMPP}
+\end{figure}
+
+Jendela berikutnya adalah pemberitahuan bahwa kita siap untuk menginstall XAMPP, Klik next dan XAMPP akan memulai  proses penginstallan.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{figures/readytoinstall}
+\caption{Ready to Install}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{figures/setup}
+\caption{Proses Penginstallan}
+\end{figure}
+
+Setelah proses penginstallan hampir selesai akan muncul jendela Windows Security Alert pada gambar 5.9 karena Windows Defender Firewall mendenteksi Apache HTTP Server. Untuk lanjut klik Allow access.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{figures/windowssecurityalert}
+\caption{Windows Security Alert}
+\end{figure}
+
+Proses penginstallan XAMPP sudah selesai pada gambar 5.10 maka akan muncul jendela Completing, dalam bagian ini kita dapat memilih untuk langsung menggunakan XAMPP atau tidak. Jika ingin langsung memakai, ceklis pada Do you want to start the Control Panel now? lalu klik finish. Jika tidak maka hilangkan ceklis dari  Do you want to start the Control Panel now? lalu klik finish.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{figures/selesaiinstall}
+\caption{Selesai Install}
+\end{figure}
+
+\subsection{Menguji Instalasi XAMPP}
+Sesuai dengan namanya, jendela XAMPP Control Panel adalah jendela yang digunakan untuk mengontrol apa saja modul atau aplikasi apa saja yang ingin kita jalankan. Jika ingin membuka manual maka kita dapat membuka dengan cara dari menu Start->All Programs->XAMPP->XAMPP Control Panel. Untuk menguji instalan XAMPP ini, silahkan klik tombol Start pada modul apache dan MySQL. Jika tidak ada masalah maka akan tampil warna hijau pada bagian modul ini.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{figures/controlpanel}
+\caption{XAMPP Control Panel}
+\end{figure}
+
+Selanjutnya buka web browser dan ketikan localhost pada address bar kemudian enter maka akan muncul dengan otomatis localhost/dashboard semuanya telah terinstall dengan baik.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3]{figures/dashboard}
+\caption{Localhost Dashboard}
+\end{figure}
+
+Jika ingin melihat versi PHP kita secara mendalam silahkan klik PHPInfo di pojok kanan atas. Disini kita dapat melihat bahwa PHP yang kita pakai sudah versi 7.3.4.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{figures/versiphp}
+\caption{Versi PHP}
+\end{figure}
+
+\subsection{Membuat Database}
+Secara umum, tipe website bisa dibedakan menjadi dua yaitu web statis dan web dinamis. Web statis adalah web yang tetap dalam arti tampilan, navigasi, dan konten tidak dapat berubah dengan otomatis. Ketika kita ingin mengupdate sebuah kegiatan akan tetapi kita harus membuka file yang aslinya. Umumnya kegiatan yang ditampillkan tetap untuk jangka waktu satu hari - satu hari. Tipe website ini biasanya hanya berupa tag html saja, jadi diperlukan database yang digunakan untuk menyimpan data.
+\par
+Selain memanfaatkan tag html, website yang menggunakan flash juga bisa dikategorikan sebagai web statis, meskipun ada sebagian kecil yang sudah memiliki database dalam mengelola konten tidak perlu membuka sebuah file tertentu namum hanya menambahkan pada form yang telah disiapkan dan tersimpan di database. Sama halnya dengan e-logbook ini harus ada database yang dibuat.
+\begin{enumerate}
+\item Untuk membuat database kita pertama kali harus membuka aplikasi XAMPP yang sudah terinstall dan klik start pada Apache serta MySQL.
+
+ \begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{figures/controlpanel}
+\caption{XAMPP Control Panel}
+\end{figure}
+
+\item Jika sudah berjalan maka selanjutnya buka web browser kesayangan kita lalu ketikan https://localhost/phpmyadmin
+
+ \begin{figure}[c]
+\centering
+\includegraphics[scale=0.35]{figures/phpmyadmin}
+\caption{Halaman Utama}
+\end{figure}
+
+\item Setelah itu, klik databases lalu ketikkan elban lalu klik create
+
+ \begin{figure}[c]
+\centering
+\includegraphics[scale=0.35]{figures/databases}
+\caption{Create Database}
+\end{figure}
+
+\item Setelah database dibuat lalu belum ada table, klik SQL lalu masukan codingan berikut
+
+\begin{lstlisting}
+CREATE TABLE IF NOT EXISTS `logbook` (
+  `id_logbook` int(10) NOT NULL,
+  `tanggal` date NOT NULL,
+  `petugas` varchar(100) NOT NULL,
+  `vendor` varchar(100) NOT NULL,
+  `penerbangan` varchar(100) NOT NULL,
+  `kegiatan` varchar(500) NOT NULL,
+  `point_kerusakan` varchar(200) NOT NULL,
+  `target_pekerjaan` varchar(200) NOT NULL,
+  `id_user` tinyint(1) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `logbook`
+--
+
+INSERT INTO `logbook` (`id_logbook`, `tanggal`, `petugas`, `vendor`, `penerbangan`, `kegiatan`, `point_kerusakan`, `target_pekerjaan`, `id_user`) VALUES
+(2, '2019-03-31', 'M. Arif S, Vania & Rismayadi', 'Anto (CUPPS) Hisyam', 'Citylink KJT - KNO', 'PM di SCP 2 Inter Line 1', 'Master Clok Gate 4, XRAY BHS Internasional', 'Master Clock Gate 4', 12),
+(3, '2019-03-28', 'M. Arif S & Vania', 'Anto (CUPPS) Hisyam', 'KJT - KNO (Cancelled)', 'PM', 'Master clock gate 4 off', 'Master CloCk gate 4', 12);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pegawai`
+--
+
+CREATE TABLE IF NOT EXISTS `pegawai` (
+  `id_pegawai` int(10) NOT NULL,
+  `pegawai` varchar(100) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pegawai`
+--
+
+INSERT INTO `pegawai` (`id_pegawai`, `pegawai`) VALUES
+(1, 'M. Arif S'),
+(2, 'M. Arif S & Vania'),
+(3, 'M. Arif S, Vania & Hafiz'),
+(4, 'M. Arif S, Vania & Rismayadi'),
+(5, 'M. Arif S & Hafiz'),
+(6, 'M. Arif S & Rismayadi'),
+(7, 'M. Arif S, Vania, Hafiz & Rismayadi'),
+(8, 'Vania'),
+(9, 'Vania & Hafiz'),
+(10, 'Vania & Rismayadi'),
+(11, 'Vania, Hafiz & Rismayadi'),
+(12, 'Hafiz'),
+(13, 'Hafiz & Rismayadi'),
+(14, 'Rismayadi'),
+(15, 'M. Arif S, Hafiz & Rismayadi');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `id_user` tinyint(2) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(35) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `alamat` varchar(150) NOT NULL,
+  `hp` varchar(20) NOT NULL,
+  `level` tinyint(1) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id_user`, `username`, `password`, `nama`, `alamat`, `hp`, `level`) VALUES
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Luqman Nurfajri', 'Ciwarugotham', '089634530333', 1),
+(13, 'vania', '081c2ce8528c443cc4be69d4096c9778', 'Vania R', 'Kertajati', '-', 1);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `logbook`
+--
+ALTER TABLE `logbook`
+  ADD PRIMARY KEY (`id_logbook`);
+
+--
+-- Indexes for table `pegawai`
+--
+ALTER TABLE `pegawai`
+  ADD PRIMARY KEY (`id_pegawai`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id_user`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `logbook`
+--
+ALTER TABLE `logbook`
+  MODIFY `id_logbook` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `pegawai`
+--
+ALTER TABLE `pegawai`
+  MODIFY `id_pegawai` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id_user` tinyint(2) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+\end{lstlisting}
+
+\end{enumerate}
+
+\section{Struktur Dasar PHP}
+Pada awalnya PHP adalh kependekan dari Personal Home Page (Situs personal). PHP pertama kali dibuat oleh Rasmus Lerdorf pada tahun 1995. Pada saat itu PHP masih bernama Form Interpreted (FI), yang wujudnya berupa sekumpulan skrip yang digunakan untuk mengolah data formulir dari web. Selanjutnya Rasmus merilis kode sumber tersebut untuk umum dan menamakannya PHP/FI. Dengan perilisan kode sumber ini menjadi sumber yang terbuka, maka banyak pemrogram yang ikut tertarik untuk ikut mengembangkan PHP.
+\par
+Pada November 1997, dirilis lah PHP/FI 2.0. Pada rilisan ini, interpreter PHP sudah diimplementasikan dalam program C. Dalam rilis ini disertakan juga modul-modul ekstensi yang meningkatkan kemampuan PHP/FI secara signifikan. Pada tahun 1997, ada sebuah perusahaan bernama Zend menulis ulang interpreter PHP menjadi lebih bersih, lebih baik, dan lebih cepat. Kemudian pada Juni 1998, perusahaan tersebut dapat merilis interpreter baru untuk PHP dan meresmikan rilis tersebut sebagai PHP 3.0 dan singkatan PHP diubah menjadi akronim berulang PHP: Hypertext Preprocessing. Pada pertengahan tahun 1999, Zend merilis interpreter PHP baru dan rilis tersebut dikenal dengan PHP 4.0. PHP 4.0 adalah versi PHP yang paling banyak dipakai pada awal abad ke-21. Versi ini banyak dipakai disebabkan kemampuannya untuk membangun aplikasi web kompleks tetapi tetap memiliki kecepatan dan stabilitas yang tinggi. 
+\par
+Pada Juni 2004, Zend merilis PHP 5.0. Dalam versi ini, inti dari interpreter PHP mengalami perubahan besar. Versi ini juga memasukkan model pemrograman berorientasi objek ke dalam PHP untuk menjawab perkembangan bahasa pemrograman ke arah paradigma berorientasi objek. Server web bawaan ditambahkan pada versi 5.4 untuk mempermudah pengembang menjalankan kode PHP tanpa menginstall software server. Versi terbaru dan stabil dari bahasa pemograman PHP saat ini adalah versi 7.0.16 dan 7.1.2 yang resmi dirilis pada tanggal 17 Februari 2017.
+
+\subsection{Variabel}
+Variabel ini digunakan untuk menyimpan sebuah nilai, data atau informasi.
+\begin{enumerate}
+\item Nama dari variabel diawali dengan tanda dollar \$.
+\item Panjang dari variabel tidak terbatas.
+\item Setelah tanda \$ .
+\item Tidak perlu untuk dideklarasikan atau compile.
+\item Tidak boleh mengandung spasi.
+\end{enumerate}
+Contoh:
+\begin{lstlisting}
 <?php
-    class nama_class{
-	
-	isi dari class
-}
+$npm="1154054";
+$nama=' Luqman Nurfajri';
+echo"npm : ".npm ."<br>;
+echo"nama: &nama";
 ?>
 \end{lstlisting}
+
+\subsection{Tipe Data}
+Pada PHP, tipe data dari variabel tergantung kondisi yang dialami oleh programmer itu sendiri. Akan tetapi secara otomatis dapat ditentukan oleh PHP. PHP telah mendukung 8 buah tipe data primitif yaitu:
+\begin{enumerate}
+\item Boolean.
+\item Integer.
+\item Float.
+\item String.
+\item Array.
+\item Object.
+\item Resource.
+\item NULL.
+\end{enumerate}
+Contoh:
+\begin{lstlisting}
+<?php
+$npm = "1154054";
+$nama = ' Luqman Nurfajri';
+$umur= 22;
+$nilai = 98.75;
+$status = TRUE;
+echo"NPM : ". $npm ."<br>;
+echo"Nama:  $nama";
+print "Umur : " . $umur; print "<br>";
+printf ("Nilai: %.3f<br>"), $nilai);
+if ($status)
+echo "Status: Aktif";
+else
+echo "Status: Tidak Aktif:;
+?>
+\end{lstlisting}
+
+\subsection{Konstanta}
+Konstanta adalah sebuah variabel konstan yang nilainya tidak berubah-ubah. Untuk mendefinisikan konstanta dalam PHP, menggunakan fungsi define() .
+Contoh:
+\begin{lstlisting}
+<?php
+define ("Nama", "Luqman Nurfajri";
+define ("Nilai", 98.75);
+echo"Nama : ".Nama .<br>;
+echo"Nilai: " .Nilai";
+?>
+\end{lstlisting}
+
+
+\subsection{Struktur Kondisi Dan Perulangan}
+\subsubsection{Struktur Kondisi IF}
+Kondisi IF adalah kondisi dimana sebuah data yang apabila kondisinya jika dan hanya nilai kebenaran dari hasil yang dibuat adalah benar, tetapi jika kondisi yah diuji salah maka sistem / program akan tidak menanggapi. Contoh:
+\begin{lstlisting}
+ if (bebas) {
+                pernyataan benar
+}
+\end{lstlisting}
+Dari skrip diatas parameter IF ini dapat kita gunakan dalam PHP, buatlah file dengan nama \textbf{bebas.php}.
+\begin{lstlisting}
+<html>
+<head>
+<title> Test Kondisi IF </title>
+   <body>
+    <?php
+         $bebas ="aih";
+
+         if ($bebas == "aih") {
+                echo "Buku ini semoga bermanfaat";
+          }
+         ?>
+    </body>
+</html>
+\end{lstlisting}
+ 
+
+\subsubsection{Struktur Kondisi IF ELSE}
+Kondisi IF ELSE  digunakan untuk jika kondisi kita memiliki dua pilihan dari hasil yang berbeda, contohnya hasil yang keluar bernilai benar (\textit{true}) dan bernilai salah (\textit{false}). Secara standar sintaks seperti ini:
+\begin{lstlisting}
+if (bebas) {
+    statement benar
+} else {
+     statement salah
+}
+\end{lstlisting}
+Dari sintaks diatas kita dapat menyimpulkan bahwa, apabila \textbf{bebas} mendapatkan nilai yang sesuai maka \textit{statement} akan benar maka program yang akan dieksekusi benar dan jika \textbf{bebas} mendapatkan nilai salah maka yang dieksekusi adalah \textit{statement} salah. Berikut contoh penggunaan kondisi IF dan ELSE. Buatlah file dengan nama\textbf{ ifelse.php}:
+\begin{lstlisting}
+<html>
+<head>
+<title>Test Kondisi IF dan ELSE </title>
+</head>
+    <body>
+        <?php
+            $makan = "eat";
+                 if ($makan=="eat")
+                      echo "Makan adalah bahasa indonesia dari eat";
+                 else {
+                      echo "Makan bukan bahasa indonesia dari EAt";
+                  }
+          ?>
+    </body>
+</html>
+\end{lstlisting}
+
+\subsubsection{Struktur Kondisi Switch Dan Case}
+Struktur kondisi SWITCH DAN CASE digunakan saat penyelesaian dari persoalan dengan jumlah kondisi yang banyak. Struktur ini dapat memeriksa nilai suatu variabel dengan SWITCH dan memeriksa kondisi dengan CASE. Contoh:
+\begin{lstlisting}
+switch ($var) {
+case '1' : statement-1; break;
+case '2' : statement-2; break;
+....
+}
+\end{lstlisting}
+Berikut contoh penggunaan kondisi SWITCH dan CASE. Buatlah file dengan nama\textbf{ swicase.php}:
+\begin{lstlisting}
+<?php
+$day =date ("D");
+switch ($day) {
+    case 'Sun' : $hari= "Minggu" ; break;
+    case 'Mon' : $hari= "Senin" ; break;
+    case 'Tue' : $hari= "Selasa" ; break;
+    case 'Wed' : $hari= "Rabu" ; break;
+    case 'Thu' : $hari= "Kamis" ; break;
+    case 'Fri' : $hari= "Jum'at" ; break;
+    case 'Sat' : $hari= "Sabtu" ; break;
+    default: $hari = "Kiamat" ;
+}
+echo "Hari ini hari <b>$hari</b>";
+?>
+\end{lstlisting}
+<<<<<<< HEAD
 \subsection{Pengertian Property}
 Property adalah data-data yang terdapat didalam class datanya berupa penjelasan sifat dari class. contohnya pada class mobil adalah warna, ukuran, merek dan lain-lain. Kegunaan property dalam sebuah class sama dengan kegunaan variabel di php. bisa digunakan untuk menyimpan data dan lain-lain. Berikut contoh penulisan sintaks property pada class.
  \begin{lstlisting}
@@ -42,3 +455,116 @@ Property adalah data-data yang terdapat didalam class datanya berupa penjelasan 
 }
 ?>
 \end{lstlisting}
+=======
+
+\subsubsection{Struktur Perulangan For}
+Struktur perulangan digunakan dalam kondisi membatasi perulangan. sebagai contoh disini kita mengulang kalimat "Semoga buku ini bermanfaat" sebanyak 50 kali. Buatlah file dengan nama \textbf{for.php}
+\begin{lstlisting}
+<?php
+for ($i= 1; $i <= 50; $i++)
+{
+   echo "Semoga buku ini bermanfaat";
+   echo "<br />";
+}
+?>
+\end{lstlisting}
+
+\subsubsection{Struktur Perulangan While}
+Struktur perulangan while digunakan pada saat banyaknya perulangan tidak dapat kita pastikan.
+Disini kita mengulang angka  1 sampai 14 sebagai contoh:  Buatlah file dengan nama \textbf{while.php}
+\begin{lstlisting}
+<?php
+$i=1;
+while ($i <= 14)
+{
+  echo "$i";
+  echo "<br />";
+  $i=$i+1;
+}
+?>
+\end{lstlisting}
+
+\subsubsection{Struktur Perulangan Do While}
+Struktur Do While sebenernya lanjutan dari perulangan While, perbedaan keduanya dilihat dari posisi pengecakan kondisi. Apabila perulangan While kondisi yang dicek di awal maka perulangan Do While di akhir perulangan. Disini kita mengulang angka  1 sampai 14 sebagai contoh:  Buatlah file dengan nama \textbf{dowhile.php}
+\begin{lstlisting}
+<?php
+$i=1;
+do
+{
+  echo "$i";
+  echo "<br />";
+  $i=$i+1;
+} while ($i <= 10);
+?>
+\end{lstlisting}
+
+\subsubsection{Struktur Perulangan Foreach}
+Array alah sebuah tipe data yang sering digunakan dalam membuat program menggunakan PHP. Kemampuan array dalam menyimpan banyak data dalam satu variabel akan sangat berguna untuk menyederhanakan dan menghemat penggunaan variabel. Perulangan Foreach adalah perulangan khusus untuk membaca nilai dari array. Buatlah file dengan nama \textbf{foreach.php}
+\begin{lstlisting}
+<?php
+$manusia = array("Luqman","Fajri","Ahmad","Fahmi","Mister");
+
+foreach ($manusia as $val)
+{
+   echo "$value";
+   echo "<br />";
+}
+?>
+\end{lstlisting}
+
+\subsubsection{Struktur Break Dan Continue}
+Struktur \textbf{BREAK} dan \textbf{CONTINUE} sering digunakan dalam berbagai pekerjaan. Kedua struktur tersebut digunakan untuk mengatur bagaimana jalan dari pengulangan. Struktur \textbf{Break} digunakan untuk menghentikan jalan dari pengulangan sedangkan \textbf{continue} digunakan untuk menlanjutkan ke lankah selanjutnya tanpa menjalankan sisa perintah di dalam skrip pengulangan. Buatlah file dengan nama \textbf{breconti.php}
+\begin{lstlisting}
+<?php
+ 
+for ($i=1; $i <10 ; $i++) {
+    if ($i == 5)
+       continue;
+    if ($i == 8)
+       break;
+    echo "$i ";
+}
+ 
+?>
+\end{lstlisting}
+Jadi dari skrip diatas dapat disimpulkan bahwa perintah  \textbf{continue} akan melanjutkan proses pengulangan dan perintah \textbf{break} akan menghentikan proses. Dalam proses keduanya maka tidak akan muncul angka 5 dan 8 dalam proses tersebut.
+
+\subsection{Penanganan Form}
+Form dalam dunia pemrograman web sudah biasa ditulis menggunakan tag-tag HTML. Untuk halaman form yang berisi tag HTML atau tidak ada skrip lain. Ada tiga komponen penting dalam penangan form yaitu:
+\begin{enumerate}
+\item Method dalam sebuah form bertanggung jawab untuk dpat menentukan bagaimana data input yang akan di kirim. Ada dua macam method dalam penanganan form ini. Method POST dan GET. Buatlah file dengan nama \textbf{get.php}.
+\begin{lstlisting}
+<html>
+<body>
+	<form method="GET" action="">
+		<input type="text" name="nama"><br>
+		<input type="text" name="email"><br>
+		<input type="submit" name="submit" value="Submit">
+	</form>
+</body>
+</html>
+\end{lstlisting}
+Buatlah file dengan nama \textbf{post.php}.
+\begin{lstlisting}
+html>
+<body>
+	<form method="POST" action="">
+		<input type="text" name="nama"><br>
+		<input type="text" name="email"><br>
+		<input type="submit" name="submit" value="submit">
+	</form>
+
+	<?php
+	if ($_POST)
+	{
+		echo 'Nama: ' . $_POST['nama'];
+		echo '<br>';
+		echo 'Email: ' . $_POST['email'];
+	}
+	?>
+</body>
+</html>
+\end{lstlisting}
+\item Action dalam sebuah form bertanggung jawab untuk menentukan dimana data akan diolah. Biasanya action di dalam PHP digunakan untuk mengolah inputan yang diberikan. Jika action dikosongkan dapat dipastikan halaman yang sama pada prosesnya.
+\item Submit bertugas sebagai penanda pengiriman data dari form input yang diberikan. Jika tombol submit ditekan maka data dari form input akan dikirim kemudian diproses oleh atribut action yang digunakan.
+>>>>>>> 363ff4bc86d4c6e08b500ecdc0a390a9b15a4576
