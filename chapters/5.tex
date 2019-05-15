@@ -673,6 +673,100 @@ echo ucwords("$teks</p>");
 ?>
 \end{lstlisting}
 
-
-
+\subsection{String Dan Tanggal}
+String adalah kumpulan dari karakter dalam PHP. Karakter dalam PHP ada 256. PHP tidak mendukung native unicode. Untuk dapat menuliskan sebuah string dalam PHP, kita dapat menggunakan 3 cara, yaitu:
+\begin{enumerate}
+\item Kutip tunggal (')
+\item Kutip Ganda (")
+\item Heredoc sintaks atau suatu cara untuk menulis blok besar teks dalam PHP
+\item Nowdoc sintaks (semenjak PHP 5.3.0)
 \end{enumerate}
+Pada PHP 7.0.0, tidak ada batasan khusus mengenai panjang string pada build 64-bit. Pada build 32-bit dan dalam versi sebelumnya, sebuah string dapat berukuran hingga 2GB (maksimum 2147483647 bytes). Cara termudah untuk menentukan string adalah dengan melampirkannya dalam tanda kutip tunggal ('). Buatlah file dengan nama \textbf{tunggal.php}.
+\begin{lstlisting}
+<?php
+echo 'ini adalah string sederhana';
+
+echo 'kita juga dapat menempelkan baris baru dalam string dengan cara ini karena tidak apa-apa untuk dilakukan'';
+
+
+echo 'Luqman pernah berkata: "Aku akan kembali"';
+
+// Outputs: Kita menghapus C:\*.*?
+echo 'Kita menghapus C:\\*.*?';
+
+// Outputs: Kita menghapus C:\*.*?
+echo 'Kita menghapus C:\*.*?';
+
+// Outputs: Ini tidak akan berubah: \n sebuah baris baru
+echo 'Ini tidak akan berubah: \n sebuah baris baru';
+
+// Outputs: Bukan variabel $expand $either
+echo 'Bukan variabel $expand $either';
+?>
+\end{lstlisting}
+
+Jika string dimasukan dalam tanda kutip ganda ("), PHP akan menafsirkan urutan berikut untuk membentuk karakter khusus:
+\begin{lstlisting}
+<?php
+$nama  = “Luqman”;
+ 
+echo “nama saya $nama”;
+?>
+\end{lstlisting}
+Cara ketiga untuk membatasi string adalah sintaks \textbf{heredoc}. Setelah operator ini, pengidentifikasi yang disediakan, kemudian baris baru. String itu sendiri mengikuti, dan kemudian pengidentifikasi yang sama lagi untuk menutup kutipan. Identifier penutup harus dimulai pada kolom pertama dari tiap baris. Selain itu, pengidentifikasi harus mengikuti aturan penamaan yang sama dengan label lainnya di PHP: ini harus hanya berisi karakter alfanumerik dan garis bawah dan harus dimulai dengan karakter non-digit atau garis bawah.
+\begin{lstlisting}
+<?php
+$str = <<<EOD
+
+EOD;
+
+{
+    var $foo;
+    var $bar;
+
+    function __construct()
+    {
+        $this->foo = 'Foo';
+        $this->bar = array('Bar1', 'Bar2', 'Bar3');
+    }
+}
+
+$foo = new foo();
+$name = 'Luqman';
+
+echo <<<EOT
+My name is "$name". I am printing some $foo->foo.
+Now, I am printing some {$foo->bar[1]}.
+This should print a capital 'A': \x41
+EOT;
+?>
+\end{lstlisting}
+
+Nowdocs adalah untuk string yang dikutip satu kali, dan heredocs adalah string yang dikutip ganda. Nowdoc ditentukan mirip dengan heredoc, tetapi tidak ada proses yang dilakukan di dalam nowdoc. Konstruk ini ideal untuk mencocokan kode PHP atau blok teks besar lainnya.
+
+Nowdoc diidentifikasi dengan urutan yang sama dengan yang digunakan untuk heredocs, tetapi pengidentifikasi yang berikut dilampirkan dalam tanda kutip tunggal. 'EOT'. Semua aturan untuk pengidentifikasi heredoc juga berlaku untuk pengidentifikasi nowdoc, terutama yang berkenaan dengan penampilan pengidentifikasian tertutup.
+
+\begin{lstlisting}
+<?php
+class foo
+{
+    public $foo;
+    public $bar;
+
+    function __construct()
+    {
+        $this->foo = 'Foo';
+        $this->bar = array('Bar1', 'Bar2', 'Bar3');
+    }
+}
+
+$foo = new foo();
+$name = 'Luqman';
+
+echo <<<'EOT'
+My name is "$name". I am printing some $foo->foo.
+Now, I am printing some {$foo->bar[1]}.
+This should not print a capital 'A': \x41
+EOT;
+?>
+\end{lstlisting}
