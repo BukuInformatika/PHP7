@@ -770,3 +770,212 @@ This should not print a capital 'A': \x41
 EOT;
 ?>
 \end{lstlisting}
+
+Fungsi pada operasian tanggal PHP terdapat beberapa jenis akan tetapi fungsi yang sering digunakan adalah date(). Fungsi ini dapat menghasilkan tanggal serta waktu sekarang. Beberapa pilihan parameternya dapat dilihat sebagai berikut: 
+
+\begin{table}[h]
+\caption{Operasi Tanggal PHP}
+\centering
+\begin{tabular}{lcr}
+\hline
+Parameter & Keterangan & Contoh Nilai \\
+\hline
+\textbf{Hari}& &
+d & Tanggal & 01 - 31 \\
+D & Tiga digit & Mon - Sun \\
+j & Tanggal tanpa nol & 1 - 31 \\
+l  & Nama hari lengkap & Monday - Sunday \\
+N & Urutan hari  & 1 - 7 \\
+S & Akhiran angka inggris  & sr, nd, rd atau th \\
+w & Urutan hari dalam seminggu & 0 - 6 \\
+z & Urutan hari dalam setahun & 1 - 365 \\
+\textbf{Minggu} & &  \\
+W & Urutan minggu dalam setahun  & Contoh: 14, minggu ke 14 dalam tahun ini \\
+\textbf{Bulan} &  &  \\
+F & Nama bulan lengkap & January - December \\
+m & Urutan bulan  & 01 - 12 \\
+M & Tiga digit nama bulan & Jan - Dec \\
+n & Urutan bulan dalam setahun & 1 - 12 \\
+t & Jumlah hari dalam bulan & 14 - 31 \\
+\textbf{Tahun} &  &  \\
+Y & 4 digit tahun & 1997 \\
+y & 2 digit tahun & 97 \\
+\textbf{Waktu} &  &  \\
+a & Lowercase  & am atau pm\\
+A & Uppercase  & AM atau PM \\
+g & Jam format 12  & 1 - 12 \\
+G & Jam format 24 & 0 - 23 \\
+h & Jam format 12 & 01 - 12 \\
+H & Jam format 24 & 00 - 23 \\
+i & Menit & 00 - 59 \\
+s & Detik & 00-59 \\
+\hline
+\end{tabular}
+\end{table} 
+
+ Buatlah file dengan nama \textbf{date1.php}.
+\begin{lstlisting}
+<?php
+ echo "<br>". date("d/m/Y H:i:s");
+ echo "<br>";
+ echo "<br>". date("F j, Y, g:i a"); 
+ echo "<br>";
+ echo "<br>". date("d.m.y"); 
+ echo "<br>";
+ echo "<br>". date("Ymd"); 
+ echo "<br>";
+ echo "<br>". date('j-m-y, it is w Day z '); 
+ echo "<br>";
+ echo "<br>". date('\i\t \i\s \t\h\e jS \d\a\y.'); 
+ echo "<br>";
+ echo "<br>". date("D M j G:i:s T Y");
+ echo "<br>". date("H:i:s"); 
+?>
+\end{lstlisting}
+
+ Buatlah file dengan nama \textbf{date2.php}.
+\begin{lstlisting}
+<?php
+ // menunjukan tanggal tanggal sekarang
+ $arrDay = array("Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu");
+ $day = date ("w"); //0 - 6 of day
+ echo "Hari ini hari : <b>" . $arrDay[$day]."</b>";
+?>
+\end{lstlisting}
+
+\subsection{File Dan Direktori}
+Dalam memanagement file dan direktori dalam PHP lterdapat lebih dari 70 fungsi. Beberapa fungsi utama seperti (create, write, append, dan delete), yaitu: Membuka dan Membuat File.
+\newline
+\textbf{fopen(\$namafile, \$mode);}
+\newline
+\$namafile adalah nama file yang ingin kita buat, sedangkan \$mode adalah mode akses file. Mode akses file terdiri dari: 
+\newline
+r = Hanya untuk membaca file, pointer berada di awal file.
+\newline
+r+ = Dapat baca dan tulis file, pointer berada di awal file.
+\newline
+w = Hanya untuk tulis file, isi file lama dihapus, jika file belum ada maka akan di-create.
+\newline
+w+ = Untuk baca dan tulis file, isi file lama dihapus, jika file belum ada maka akan di-create.
+\newline
+a = Hanya untuk menambahkan isi file, pointer berada di akhir file, jika file belum ada maka di-create.
+\newline
+a+ = Untuk membaca dan menambahkan isi file, pointer berada di akhir file, jika file belum ada maka di-create.
+\newline
+ Buatlah file dengan nama \textbf{file1.php}
+\begin{lstlisting}
+<?php
+$namafile = "data.txt";
+$handle = fopen ($namafile, "r");
+if (!$handle) {
+ echo "<b>File tidak dapat dibuka atau belum ada</b>";
+} else {
+ echo "<b>File berhasil dibuka</b>";
+}
+fclose($handle);
+?> 
+\end{lstlisting}
+
+\newline
+ Buatlah file dengan nama \textbf{file2.php}
+\begin{lstlisting}
+<?php
+$namafile = "data.txt";
+$handle = fopen ($namafile, "w");
+if (!$handle) {
+ echo "<b>File tidak dapat dibuka atau belum ada</b>";
+} else {
+ echo "<b>File berhasil dibuka</b>";
+}
+fclose($handle);
+?> 
+\end{lstlisting}
+
+\newline
+ Buatlah file dengan nama \textbf{file3.php}
+\begin{lstlisting}
+<?php
+$namafile = "data.txt";
+$handle = fopen ($namafile, "w");
+if (!$handle) {
+ echo "<b>File tidak dapat dibuka atau belum ada</b>";
+} else {
+ fwrite ($handle, "Fakultas Teknologi Informasi\n");
+ fputs ($handle, "Universitas Budi Luhur\n");
+ //file_put_contents ($namafile, "Jakarta");
+ echo "<b>File berhasil ditulis</b>";
+}
+fclose($handle);
+?> 
+\end{lstlisting}
+
+\newline
+ Buatlah file dengan nama \textbf{file4.php}
+\begin{lstlisting}
+<?php
+$namafile = "data.txt";
+$handle = fopen ($namafile, "r");
+if (!$handle) {
+ echo "<b>File tidak dapat dibuka atau belum ada</b>";
+} else {
+ $isi = fgets ($handle, 2048);
+ //$isi2 = fread ($handle, 20);
+ echo "Isi 1 : $isi<br>";
+ //echo "Isi 2 : $isi2<br>";
+}
+fclose($handle);
+?> 
+\end{lstlisting}
+
+\newline
+ Buatlah file dengan nama \textbf{file5.php}
+\begin{lstlisting}
+<?php
+$namafile = "data.txt";
+$handle = fopen ($namafile, "r");
+if (!$handle) {
+ echo "<b>File tidak dapat dibuka atau belum ada</b>";
+} else {
+ echo "<b>Isi file : </b><br>";
+ while ($isi = fgets ($handle, 2048)) {
+ echo "$isi<br>";
+ }
+}
+fclose($handle);
+?> 
+\end{lstlisting}
+
+\newline
+ Buatlah file dengan nama \textbf{file6.php}
+\begin{lstlisting}
+<?php
+$namafile = "data.txt";
+$handle = @fopen($namafile, "r");
+if ($handle) {
+ while (!feof($handle)) {
+ $buffer = fgets($handle, 4096);
+ echo $buffer."<br>";
+ }
+ fclose($handle);
+}
+?> 
+\end{lstlisting}
+
+\newline
+ Buatlah file dengan nama \textbf{file7.php}
+\begin{lstlisting}
+<?php
+$counter_file="counter.txt";
+if (!file_exists ($counter_file)) {
+ fopen ($counter_file, "w");
+}
+$file = fopen($counter_file,"r");
+$counter = fread($file,10);
+fclose($file);
+$counter++;
+echo "<h2>Anda adalah pengunjung ke - $counter</h2>";
+$file = fopen($counter_file, "w");
+fwrite($file,$counter);
+fclose($file);
+?> 
+\end{lstlisting}
