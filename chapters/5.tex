@@ -1060,3 +1060,102 @@ Keterangan:
 \item Parameter 1234 adalah hak akses yang kita berikan kepada direktori;
 \item Parameter true artinya kita mengizinkan pembuatan direktori secara langsung.
 \end{enumerate}
+
+\textbf{2. Cara Melihat Isi Direktori di PHP}
+\newline
+Kali ini fungsi yang akan kita gunakan adalah scandir(). Fung ini dapat mengembalikan nilai berupa array yang berisi nama-nama dari isi direktori itu sendiri. Contoh:
+\begin{lstlisting}
+<?php
+$dir = scandir("test_direktori");
+print_r($dir);
+?>
+\end{lstlisting}
+Maka variabel \$dir akan berisi:
+\begin{lstlisting}
+Array
+(
+    [0] => .
+    [1] => ..
+    [2] => contoh
+)
+\end{lstlisting}
+
+\textbf{3. Cara Menghapus Direktori di PHP}
+\newline
+Menghapus direktori dalam PHP dapat dliakukan dengan fungsi rmdir(). Fungsi ini memiliki parameter berupa string. Parameter tersebut adalah nama direktori yang ingin kita hapus. Contoh:
+\begin{lstlisting}
+<?php 
+rmdir("nama_dir"); 
+?>
+\end{lstlisting}
+
+Fungsi rmdir() akan menghasilkan error apabila alamat direktorinya salah atau tidak ditemukan. Untuk mengatasi ini, kita dapat menggunakan fungsi is_dir() yang digunakan untuk mengecek direktorinya ada atau tidak. Contoh:
+
+\begin{lstlisting}
+<?php
+$nama_dir = "test_direktori";
+
+if( is_dir($nama_dir) ) {
+    rmdir($nama_dir); 
+} else {
+    echo "Direktori tidak ditemukan"; 
+}
+?>
+\end{lstlisting}
+
+\textbf{4 . Cara Mengubah Nama Direktori di PHP}
+\newline
+Kita dapat merubah nama direktori dengan fungsi rename(). Fungsi dapat merubah nama direktori dan mengubah nama file juga dapat menggunakan fungsi ini. Contoh:
+\begin{lstlisting}
+<?php 
+rename("test_direktori", "“direktori_test"); 
+?>
+\end{lstlisting}
+
+Keterangan:
+\begin{enumerate}
+\item test\_direktori adalah direktori yang lama;
+\item direktori\_test adalah direktori yang baru.
+\end{enumerate}
+
+\subsection{Cookie dan Session}
+Dalam php kita kenal session dan cookies yang digunakan untuk menyimpan informasi pengguna. Secara umum memang sulit dibedakan karena dari faktor fungsinya bisa dikatakan sama. Cookies adalah informasi yang dapat disimpan di komputer kita dengan bantuan browser. 
+\par 
+Cookies dapat diakses kapanpun melalui halaman-halaman php selama cookies ini masih tersimpan. Cookies disimpan di komputer kita selama dalam sebuah file kecil yang diletakkan pada folder tertentu oleh browser. 
+\begin{lstlisting}
+<?php
+   $test = $_COOKIE["Test"];
+   echo $test;
+?> 
+\end{lstlisting}
+Penyimpanan informasi dengan cookies paling sering digunakan untuk:
+\begin{enumerate}
+\item Menyimpan username dan password dalam login agar pengguna tidak selalu harus mengisikannya pada saat membuka halaman.
+\item Untuk mencatat konfigurasi yang direkam oleh pengguna, seperti warna tema, jenis huruf, dan pilihan bahasa.
+\item Untuk mengetahui apakah pengunjung pernah datang atau belum ke halaman yang sedang dibuka.
+\end{enumerate}
+Session dapat diartikan sebagai sebuah variabel yang bersifat global yang diciptakan dalam server php pada saat sesi awal membuka sebuah halaman dan berlaku sampai anda menutup halaman tersebut.
+\begin{lstlisting}
+<?php
+
+    //memulai session
+    session_start();
+
+    //jika ada session, maka akan diarahkan ke halaman dashboard admin
+    if(isset($_SESSION['id_user'])){
+
+        //mengarahkan ke halaman dashboard admin
+        header("Location: ./admin.php");
+        die();
+    }
+
+    //mengincludekan koneksi database
+    include "koneksi.php";
+
+?> 
+\end{lstlisting}
+Session ini sering digunakan untuk:
+\begin{enumerate}
+\item Menyimpan informasi login yang berlaku hanya dalam satu sesi.
+\item Menyimpan catatan order barang dalam sistem transaksi online.
+\end{enumerate}
