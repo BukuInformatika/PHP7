@@ -1159,3 +1159,152 @@ Session ini sering digunakan untuk:
 \item Menyimpan informasi login yang berlaku hanya dalam satu sesi.
 \item Menyimpan catatan order barang dalam sistem transaksi online.
 \end{enumerate}
+
+\subsection{Pemrograman Berorientasi Objek Dalam PHP }
+PHP pada awalnya hanya sekumpulan script sederhana. Dalam perkembangannya, dapat ditambahkan berbagai fitur pemrograman berorientasi objek. Hal ini dimulai sejak PHP 4. Dengan lahirnya PHP 5, fitur-fitur pemrograman berorientasi objek semakin mantap dan semakin cepat. Dengan PHP 7, script yang menggunakan konsep object-oriented akan lebih cepat dan lebih efisien.
+\par
+Pemrograman Berorientasi Objek atau Object Oriented Programming (OOP) adalah salah satu cara membuat program dengan memecah menjadi beberapa modul-modul sederhana yang kita sebut sebagai objek. Akan tetapi, setiap memiliki fungsi dan tugas tersendiri. Saat ini OOP telah menjadi sebuah standar dalam dunia pemrograman, termasuk bahasa pemrograman PHP. Kita dapat membuat program PHP walaupun tanpa OOP sama sekali, namun programmer akan beralih menggunakan OOP karena konsepnya yang fleksibel. 
+\newline
+\textbf{Class}
+\newline
+Class adalah 'bentuk kasar' dari objek. Class digunakan untuk membuat sebuah kerangka dasar. Yang kita pakai nantinya adalah hasil cetakan dari class yaitu objek. Dalam PHP, penulisan class dapat diawali dengan keyword class kemudian nama dari class tersebut. Aturan penulisan class sama seperti aturan variabel dalam PHP yaitu diawali dengan huruf atau underscore untuk karakter utama, setelahnya dapat berupa selain huruf pada karakter kedua dan selanjutnya.  Isi dari class yang berada di dalam kurung kurawal. Contoh:
+\begin{lstlisting}
+<?php
+class motor {
+   // isi dari class test.
+}
+?>
+\end{lstlisting}
+\textbf{Property}
+\newline
+Property atau atribut adalah data yang terdapat di dalam sebuah class. Dalam PHP, aturan tentang tata cara penamaan property ini sama dengan penamaan variabel. Contoh:
+\begin{lstlisting}
+<?php
+class laptop {
+   var $pemakai;
+   var $merk;
+   var $tipe;
+   // lanjutan isi dari class motor..
+}
+?>
+\end{lstlisting}
+Dari contoh diatas \$pemakai, \$merk, dan \$tipe adalah property dari class motor. Seperti yang kita lihat, penulisan property di dalam PHP sama dengan variabel yaitu dalam penggunaan tanda dollar (\$). Ingat sebuah class tidak harus mempunyai property.
+
+\newline
+\textbf{Method}
+\newline
+Method adalah tindakan apa yang ingin kita lakukan di dalam class. Jika kita menggunakan analogi sebuah motor maka contoh method yaitu: menghidupkan motor, mematikan motor, memvariasi motor, berbagai tindakan lainnya. Method pada dasarnya function atau fungsi yang berada di dalam class. Contoh:
+\begin{lstlisting}
+<?php
+class motor {
+   function menghidupkan_motor() {
+   //... isi dari method menghidupkan_motor
+   }
+ 
+   function memvariasi_motor() {
+   //... isi dari method memvariasi_motor
+   }
+ 
+   ... //isi dari class motor
+}
+?>
+\end{lstlisting}
+
+Dari contoh di atas, function menghidupkan\_motor() dan function memvariasi\_motor() adalah method dari class motor. Seperti yang kita lihat, bahwa penulisan method di dalam PHP sama dengan cara penulisan function. Sebuah class tidak harus memiliki method.
+
+\newline
+\textbf{Object}
+\newline
+Object atau Objek adalah hasil atau output dari class. Jika kita menggunakan analogi motor, maka objek adalah motor\_honda, motor\_yamaha, motor\_kawasaki, dan lain-lain. Contoh:
+\begin{lstlisting}
+<?php
+class motor {
+   //... isi dari class motor
+   }
+ 
+$motor_honda = new motor();
+$motor_kawasaki = new motor();
+?>
+\end{lstlisting}
+\subsubsection{Cara Mebuat Objek PHP}
+\newline
+Istilah objek dalam OOP tediri dari class, property, method dan object. Contoh objek dalam PHP:
+\begin{lstlisting}
+<?php
+// membuat class motor
+class motor {
+  
+   // buat property untuk class motor
+   var $pemakai;
+   var $merk;
+   var $tipe;
+  
+   // buat method untuk class motor
+   function menghidupkan_motor() {
+     return "Menghidupkan Motor";
+   
+   function memvariasi_motor() {
+     return "Memvariasi Motor";
+   }
+}
+  
+// buat objek dari class motor
+$motor_honda = new laptop();
+?>
+\end{lstlisting}
+
+Dari contoh diatas, kita telah membuat class dengan nama motior, selain class kita juga membuat property, method, dan objeknya. 
+
+\subsubsection{Cara Mengakses Objek PHP}
+\newline
+Cara mengakses objek dalam PHP ini terdiri dari objek, property, dan method. Contoh:
+\begin{lstlisting}
+<?php
+// membuat class motor
+class motor {
+  
+   // membuat property untuk class motor
+   var $pemakai;
+   var $merk;
+   var $tipe;
+  
+   // membuat method untuk class motor
+   function menghidupkan_motor() {
+     return "Menghidupkan Motor";
+    }
+   function memvariasi_motor() {
+     return "Memvariasi Motor";
+   }
+}
+  
+// membuat objek dari class motor
+$motor_honda = new motor();
+  
+// atur property
+$motor_honda>pemakai="Luqman";
+$motor_honda->merk="Beat";
+$motor_honda->tipe="CBS";
+  
+// tampilkan property
+echo $motor_honda->pemakai;
+echo "<br />";
+echo $motor_honda->merk;
+echo "<br />";
+echo $motor_honda->tipe;
+echo "<br />";
+  
+// tampilkan method
+echo $motor_honda->menghidupkan_motor();
+echo "<br />";
+echo $memvariasi_motor->memvariasi_motor();
+?>
+\end{lstlisting}
+
+Hasil dari contoh diatas adalah sebagai berikut:
+\begin{lstlisting}
+Luqman
+Beat
+CBS
+Menghidupkan Motor
+Memvariasi Motor
+\end{lstlisting}
