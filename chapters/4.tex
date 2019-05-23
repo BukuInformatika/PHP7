@@ -130,26 +130,6 @@ $detailmk["sks"] = 2;
 ?>
 \end{lstlisting}
 
-\subsection{File & Direktori}
-Dalam management file dan direktori, PHP menyediakan lebih 70 fungsi. Beberapa fungsi utama yang berhubungan dengan management file (create, write, append, dan delete), antara lain : Membuka dan membuat file.
-\begin{lstlisting}
-fopen ($namafile, $mode);
-\end{lstlisting}
-Keterangan :
-namafile merupakan nama file yang akan dibuat, sedangkan mode merupakan mode akses file. Contoh:
-\begin{lstlisting}
-<?php
-$namafile = "data.txt";
-$handle = fopen ($namafile, "mode");
-if (!handle) {
-	echo "<b>File yang ada buat belum ada</b>";
-} else {
-	echo "<b>File telah berhasil dibuka</b>";
-}
-fclose($handle);
-?>
-\end{lstlisting}
-
 
 \subsection{Pemrograman Berorientasi Objek Dalam PHP }
 PHP pada awalnya hanya sekumpulan script sederhana. Dalam perkembangannya, dapat ditambahkan berbagai fitur pemrograman berorientasi objek. Hal ini dimulai sejak PHP 4. Dengan lahirnya PHP 5, fitur-fitur pemrograman berorientasi objek semakin mantap dan semakin cepat. Dengan PHP 7, script yang menggunakan konsep object-oriented akan lebih cepat dan lebih efisien.

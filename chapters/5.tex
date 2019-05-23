@@ -979,3 +979,183 @@ fwrite($file,$counter);
 fclose($file);
 ?> 
 \end{lstlisting}
+
+\subsection{File Dan Direktori PHP}
+PHP menyediakan beberapa fungsi yang dapat digunakan agar kita dapat memanipulasi file. Dengan menggunakan PHP kita dapat membuat, menuliskan sesuatu, atau  mengedit sebuah file. Kita menggunakan beberapa fungsi dalam pengolahan file dengan PHP untuk dapat membuat sitemap. Jadi kita menambahkan sebuah kategori atau artikel, akan secara otomatis menuliskan url baru pada file sitemap.txt. Tentu saja bukan hanya sitemap yang dapat kita olah, kita dapat menggunakan fungsi-fungsi pengolahan file dalam PHP untuk banyak keperluan.
+\par
+Dalam menuliskan sesuatu kedalam sebuah file dengan menggunakan PHP, ada 3 fungsi yang perlu diperhatikan. 3 fungsi yang perlu diperhatikan dalam menulis sebuah file dengan PHP yaitu:
+\begin{enumerate}
+\item fopen() - Digunakan untuk membuka file, jika file belum tersedia maka akan membuat file baru.
+\item fwrite() - Digunakan untuk menuliskan atau mengedit sesuatu kedalam file.
+\item fclose() - Menutup file.
+\end{enumerate}
+
+Pada saat kita akan membuka sebuah file dengan menggunakan fungsi fopen(), disini kita harus menentukan tindakan apa yang akan dilakukan terhadap file tersebut. Tindakan yang akan dilakukan terhadap file contohnya, apakah file tersebut hanya akan dibaca, apakah file tersebut akan dibuka dan ditulisi sesuatu, dan lain sebagainya. Tindakan-tindakan terhadap file pada saat kita membuka file tersebut, dituliskan dengan model seperti dibawah ini:
+
+\begin{enumerate}
+\item r  : Membuka file hanya untuk dibaca saja.
+\item w : Membuka file hanya untuk ditulisi. Isi didalam file tersebut akan dihapus, jika file belum tersedia maka akan menciptakan file baru.
+\item a  : Membuka file hanya untuk ditulisi. Isi didalam file tersebut tidak dihapus, jika file belum tersedia maka akan menciptakan file baru.
+\item x  : Membuat file baru untuk menulis saja.
+\item r+: Membuka file untuk membaca dan juga ditulisi.
+\item w+: Membuka file untuk membaca dan juga ditulisi. Menghapus isi file atau membuat file baru jika tidak ada.
+\item a+: Membuka file untuk dibaca dan juga ditulisi. Membuat file baru jika file tidak ada
+\item x+: Membuat file baru untuk dibaca / ditulis.
+\end{enumerate}
+
+Untuk lebih mudah dipahami, mari kita buat contoh kasus dalam mengolah file dengan PHP. Kali ini kita akan mencotohkan cara untuk membuat sebuah file dan menuliskan sesuatu kedalamnya. Dalam contoh ini kita menggunakan model tindakan w.
+
+\begin{lstlisting}
+<?php
+
+$filekita = fopen("test.txt", "w");
+$nama = "Luqman Nurfajri";
+fwrite($filekita, $nama);
+fclose($filekita);
+
+//Hasil didalam test.txt berisi tulisan: Luqman Nurfajri
+
+?>
+\end{lstlisting} 
+Pada contoh mengolah file dengan PHP diatas, kita asumsikan bahwa dokumen PHP diatas berada dalam satu direktori yang sama dengan file yang akan diolah. Maka dapat diuraikan penjelasan sebagai berikut:
+
+\begin{enumerate}
+\item Disini membuat variabel \$filekita dan didalam variabel tersebut kita membuka sebuah file dengan nama test.txt dan menggunakan model tindakan w. Dengan begitu jika tidak terdapat file dengan nama test.txt maka PHP akan menciptakan file itu. Jika telah terdapat file tersebut, maka isi dari file akan dihapus dan digantikan dengan isi yang akan dituliskan.
+\item Variabel \$nama adalah data atau teks yang akan saya tuliskan kedalam file test.txt
+Kemudian penulisan sintak fwrite(\$filekita, \$nama) adalah proses membuka file dan menuliskan isi kedalamnya.
+\item Dengan fungsi fclose(\$filekita) berarti saya telah menutup file yang telah ditulisi tersebut.
+\end{enumerate}
+
+\textbf{Memanipulasi Direktori}
+\newline
+Direktori adalah lokasi dimana kita menyimpan file pada system yang dapat berisi kumpulan direktori dan direktori. Ada beberapa fungsi yang dapat digunakan di PHP untuk manipulasi direktori:
+\begin{enumerate}
+\item Fungsi mkdir() untuk membuat direktori;
+\item Fungsi scandir() untuk melihat isi direktori;
+\item Fungsi rmdir() untuk menghapus direktori;
+\itemFungsi rename() untuk mengubah nama direktori.
+\end{enumerate}
+
+Dari beberapa fungsi diatas ayo kita bahas semuanya.
+\newline
+\textbf{1. Cara Membuat Direktori di PHP}
+\newline
+Fungsi yang digunakan untuk membuat direktori di PHP adalah mkdir(). Fungsi ini sama maksudnya dengan perintah mkdir di Linux dan md pada Windows. Parameter yang diberikan ke fungsi mkdir() berupa string. Parameter ini yang akan menjadi nama direktori. Contoh:
+\begin{lstlisting}
+<?php 
+mkdir("contoh_direktori"); 
+?>
+\end{lstlisting}
+
+Atau kita juga bisa membuatnya seperti ini dengan menyebutkan alamat path dan atributnya:
+
+\begin{lstlisting}
+<?php
+ mkdir("C://xampp/htdocs/test_aja", 1234, true); 
+?>
+\end{lstlisting}
+
+Keterangan:
+\begin{enumerate}
+\item Parameter 1234 adalah hak akses yang kita berikan kepada direktori;
+\item Parameter true artinya kita mengizinkan pembuatan direktori secara langsung.
+\end{enumerate}
+
+\textbf{2. Cara Melihat Isi Direktori di PHP}
+\newline
+Kali ini fungsi yang akan kita gunakan adalah scandir(). Fung ini dapat mengembalikan nilai berupa array yang berisi nama-nama dari isi direktori itu sendiri. Contoh:
+\begin{lstlisting}
+<?php
+$dir = scandir("test_direktori");
+print_r($dir);
+?>
+\end{lstlisting}
+Maka variabel \$dir akan berisi:
+\begin{lstlisting}
+Array
+(
+    [0] => .
+    [1] => ..
+    [2] => contoh
+)
+\end{lstlisting}
+
+\textbf{3. Cara Menghapus Direktori di PHP}
+\newline
+Menghapus direktori dalam PHP dapat dliakukan dengan fungsi rmdir(). Fungsi ini memiliki parameter berupa string. Parameter tersebut adalah nama direktori yang ingin kita hapus. Contoh:
+\begin{lstlisting}
+<?php 
+rmdir("nama_dir"); 
+?>
+\end{lstlisting}
+
+Fungsi rmdir() akan menghasilkan error apabila alamat direktorinya salah atau tidak ditemukan. Untuk mengatasi ini, kita dapat menggunakan fungsi is_dir() yang digunakan untuk mengecek direktorinya ada atau tidak. Contoh:
+
+\begin{lstlisting}
+<?php
+$nama_dir = "test_direktori";
+
+if( is_dir($nama_dir) ) {
+    rmdir($nama_dir); 
+} else {
+    echo "Direktori tidak ditemukan"; 
+}
+?>
+\end{lstlisting}
+
+\textbf{4 . Cara Mengubah Nama Direktori di PHP}
+\newline
+Kita dapat merubah nama direktori dengan fungsi rename(). Fungsi dapat merubah nama direktori dan mengubah nama file juga dapat menggunakan fungsi ini. Contoh:
+\begin{lstlisting}
+<?php 
+rename("test_direktori", "“direktori_test"); 
+?>
+\end{lstlisting}
+
+Keterangan:
+\begin{enumerate}
+\item test\_direktori adalah direktori yang lama;
+\item direktori\_test adalah direktori yang baru.
+\end{enumerate}
+
+\subsection{Cookie dan Session}
+Dalam php kita kenal session dan cookies yang digunakan untuk menyimpan informasi pengguna. Secara umum memang sulit dibedakan karena dari faktor fungsinya bisa dikatakan sama. Cookies adalah informasi yang dapat disimpan di komputer kita dengan bantuan browser. 
+\par 
+Cookies dapat diakses kapanpun melalui halaman-halaman php selama cookies ini masih tersimpan. Cookies disimpan di komputer kita selama dalam sebuah file kecil yang diletakkan pada folder tertentu oleh browser. 
+\begin{lstlisting}
+<?php
+   $test = $_COOKIE["Test"];
+   echo $test;
+?> 
+\end{lstlisting}
+Penyimpanan informasi dengan cookies paling sering digunakan untuk:
+\begin{enumerate}
+\item Menyimpan username dan password dalam login agar pengguna tidak selalu harus mengisikannya pada saat membuka halaman.
+\item Untuk mencatat konfigurasi yang direkam oleh pengguna, seperti warna tema, jenis huruf, dan pilihan bahasa.
+\item Untuk mengetahui apakah pengunjung pernah datang atau belum ke halaman yang sedang dibuka.
+\end{enumerate}
+Session dapat diartikan sebagai sebuah variabel yang bersifat global yang diciptakan dalam server php pada saat sesi awal membuka sebuah halaman dan berlaku sampai anda menutup halaman tersebut.
+\begin{lstlisting}
+<?php
+
+    //memulai session
+    session_start();
+
+    //jika ada session, maka akan diarahkan ke halaman dashboard admin
+    if(isset($_SESSION['id_user'])){
+
+        //mengarahkan ke halaman dashboard admin
+        header("Location: ./admin.php");
+        die();
+    }
+
+    //mengincludekan koneksi database
+    include "koneksi.php";
+
+?> 
+\end{lstlisting}
+Session ini sering digunakan untuk:
+\begin{enumerate}
+\item Menyimpan informasi login yang berlaku hanya dalam satu sesi.
+\item Menyimpan catatan order barang dalam sistem transaksi online.
+\end{enumerate}

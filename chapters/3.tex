@@ -219,35 +219,6 @@ Fungsi adalah serangkaian kode yang terdapat kegunaan khusus dan tertentu, denga
 $tanggal = date(“format”);
 \end{lstlisting}
 
-
-\subsection{Cookie dan Session}
-Dalam php kita kenal session dan cookies yang digunakan untuk menyimpan informasi pengguna. Secara umum memang sulit dibedakan karena dari faktor fungsinya bisa dikatakan sama. Cookies adalah informasi yang dapat disimpan di komputer kita dengan bantuan browser. 
-\par 
-Cookies dapat diakses kapanpun melalui halaman-halaman php selama cookies ini masih tersimpan. Cookies disimpan di komputer kita selama dalam sebuah file kecil yang diletakkan pada folder tertentu oleh browser. 
-\begin{lstlisting}
-<?php
-   $test = $_COOKIE["Test"];
-   echo $test;
-?> 
-\end{lstlisting}
-Penyimpanan informasi dengan cookies paling sering digunakan untuk:
-\begin{enumerate}
-\item Menyimpan username dan password dalam login agar pengguna tidak selalu harus mengisikannya pada saat membuka halaman.
-\item Untuk mencatat konfigurasi yang direkam oleh pengguna, seperti warna tema, jenis huruf, dan pilihan bahasa.
-\item Untuk mengetahui apakah pengunjung pernah datang atau belum ke halaman yang sedang dibuka.
-\end{enumerate}
-Session dapat diartikan sebagai sebuah variabel yang bersifat global yang diciptakan dalam server php pada saat sesi awal membuka sebuah halaman dan berlaku sampai anda menutup halaman tersebut.
-\begin{lstlisting}
-<?php
-    session_start();
-?> 
-\end{lstlisting}
-Session ini sering digunakan untuk:
-\begin{enumerate}
-\item Menyimpan informasi login yang berlaku hanya dalam satu sesi.
-\item Menyimpan catatan order barang dalam sistem transaksi online.
-\end{enumerate}
-
 \section{Koneksi Dengan Database MySQL}
 Caranya buatlah file PHP dengan nama koneksi.php selanjutnya simpan file PHP tersebut di dalam directory localhost kita.
 \begin{lstlisting}
