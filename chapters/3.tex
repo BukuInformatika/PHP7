@@ -49,10 +49,20 @@ Source dokumen HTML yang tampil berupa dokumen HTML yang tidak lagi dari script 
 dan dibawah ini merupakan source dokumen HTML dari tampilan kode diatas  
   \lstinputlisting[firstline=38, lastline=40]{src/embedded_script.php}
 Jika diperhatikan dokumen HTML tersebut tidak beraturan ditampilkan. Hal tersebut tidak menjadi masalah, yang penting adalah browser web dapat menampilkannya, karena dokumen tag HTML ini murni dihasilkan dari script PHP. 
+
 \section{Variabel dan Tipe Data}
 \subsection{Variabel}
 Variabel adalah tempat penympanan data, variabel memiliki nama. dalam pemograman variabel merupakan tempat penyimpanan data didalam memori komputer. Didalam PHP nama variabel diawali dengan karakter dollar diikuti dengan huruf sebagai karakter pertama setelah dollar. kemudian kombinasi karakter dan angka. Tidak boleh ada spasi dan tanda baca dalam penamaannya. kecuali karakter (garis bawah, under score).berikut merupakan penulisan variabel yang benar:
 \lstinputlisting[firstline=31, lastline=34]{src/tag_awal_akhir.php}
+\begin{lstlisting}
+<?php
+$npm="1154054";
+$nama=' Luqman Nurfajri';
+echo"npm : ".npm ."<br>;
+echo"nama: &nama";
+?>
+\end{lstlisting}
+
 \subsection{Tipe Data}
 Data yang diolah oleh suatu program memiliki berbagai jenis ada data yang menunjukkan jumlah dan menunjukkan nilai benar dan salah, atau tulisan. Jenis tipe data dalam PHP secara mendasar dibedakan menjadi 3 macam yang disebut sebagai tipe data primitif. Tipe data primitif yang diolah oleh PHP:
 \begin{enumerate}
@@ -62,11 +72,12 @@ Data yang diolah oleh suatu program memiliki berbagai jenis ada data yang menunj
 \end{enumerate}
 Tipe data numerik dibedakan menjadi tipe data integer dan flooting point. Selain itu tipe data yang lain adalah tipe data compound, terdiri atas:
 \begin{enumerate}
-\item tipe data array
-\item tipe data objek 
+\item Tipe Data Array
+\item Tipe Data Objek 
 \end{enumerate}
+
 \subsection{Tipe Data Integer}
- tipe data integer adalah tipe data yang terdiri dari angka bulat (tidak mengandung nilai pecahan atau nilai desimal). Nilai ini bisa berbentuk angka positif maupun negatif, contohnya 1, 2, 6, -44, 20000, atau 128730123. Tipe data integer dapat dituliskan dengan notasi sebagai berikut
+Tipe data integer adalah tipe data yang terdiri dari angka bulat (tidak mengandung nilai pecahan atau nilai desimal). Nilai ini bisa berbentuk angka positif maupun negatif, contohnya 1, 2, 6, -44, 20000, atau 128730123. Tipe data integer dapat dituliskan dengan notasi sebagai berikut
 \begin{enumerate}
 \item Notasi Desimal adalah susunan bilangan yang mempunyai basis sepuluh. 
 Koefisien bilangan desimal terdiri dari 0,1,2,3,4,5,6,7,8,9.
@@ -88,7 +99,6 @@ Notasi bilangan hekasdesimal dituliskan : (n)16
  \includegraphics[width=.50\textwidth]{figures/sistem_bilangan.png}
  \caption{Sistem Bilangan}\label{fig:inputchapter}
 \end{figure}
-
 \end{enumerate}
 
 \subsection{Tipe Data Floting Point}
@@ -117,7 +127,7 @@ if ($_POST['password'] == 'admin')
 }
 \end{lstlisting}
 
-\subsection{ Operator PHP Increment dan Decrement}
+\subsection{Operator PHP Increment dan Decrement}
 Operator ini digunakan untuk menambahkan atau mengurangi nilai sebanyak 1 pada suatu variabel. 
 \subsection{Perbedaan Pre Increment dan Post Increment}
 Pada pre increment, nilai variabel akan ditambahkan 1 baru kemudian siap digunakan, sebaliknya, untuk  post increment, gunakan dulu nilai variabel kemudian baru ditambahkan dengan 1.
@@ -194,30 +204,163 @@ Perbedaan dengan jenis variable lain ialah terletak, jika setiap function dipang
 PHP melakukan eksekusi dengan perintah mulai dari baris pertama kemudian ke baris berikutnya, sampai baris yang terakhir. Struktur kontrol digunakan dalam mengatur alur logika program agar sesuiai dengan kenyataan. Struktur kontrol akan melibatkan variabel, tipe data, dan operator. 
 \subsection{If Statement}
 If Statement  adalah pernyataan yang hanya akan dijalankan jika suatu kondisi bernilai benar, berfungsi untuk melakukan filter/penyaringan hasil berdasarkan kondisi tertentu. Contoh:
+Kondisi IF adalah kondisi dimana sebuah data yang apabila kondisinya jika dan hanya nilai kebenaran dari hasil yang dibuat adalah benar, tetapi jika kondisi yah diuji salah maka sistem / program akan tidak menanggapi. Contoh:
 \begin{lstlisting}
-If (kondisi) {
-    Pernyataan 1;
-    Pernyataan 2;
-    .....
-}else{
-    Pernyataan a;
-    Pernyataan b;
-    .....
+ if (bebas) {
+                pernyataan benar
 }
 \end{lstlisting}
+Dari skrip diatas parameter IF ini dapat kita gunakan dalam PHP, buatlah file dengan nama \textbf{bebas.php}.
+\begin{lstlisting}
+<html>
+<head>
+<title> Test Kondisi IF </title>
+   <body>
+    <?php
+         $bebas ="aih";
+
+         if ($bebas == "aih") {
+                echo "Buku ini semoga bermanfaat";
+          }
+         ?>
+    </body>
+</html>
+\end{lstlisting}
+
 \subsection{Perulangan}
-Perulangan digunakan untuk mengeksekusi suatu pernyataan secara berulang-ulang. Contoh:
+\subsubsection{Struktur Kondisi IF ELSE}
+Kondisi IF ELSE  digunakan untuk jika kondisi kita memiliki dua pilihan dari hasil yang berbeda, contohnya hasil yang keluar bernilai benar (\textit{true}) dan bernilai salah (\textit{false}). Secara standar sintaks seperti ini:
 \begin{lstlisting}
-While (kondisi){
-    Pernyataan yang diulang;
-    Counter;
+if (bebas) {
+    statement benar
+} else {
+     statement salah
 }
 \end{lstlisting}
+Dari sintaks diatas kita dapat menyimpulkan bahwa, apabila \textbf{bebas} mendapatkan nilai yang sesuai maka \textit{statement} akan benar maka program yang akan dieksekusi benar dan jika \textbf{bebas} mendapatkan nilai salah maka yang dieksekusi adalah \textit{statement} salah. Berikut contoh penggunaan kondisi IF dan ELSE. Buatlah file dengan nama\textbf{ ifelse.php}:
+\begin{lstlisting}
+<html>
+<head>
+<title>Test Kondisi IF dan ELSE </title>
+</head>
+    <body>
+        <?php
+            $makan = "eat";
+                 if ($makan=="eat")
+                      echo "Makan adalah bahasa indonesia dari eat";
+                 else {
+                      echo "Makan bukan bahasa indonesia dari EAt";
+                  }
+          ?>
+    </body>
+</html>
+\end{lstlisting}
+
+\subsubsection{Struktur Kondisi Switch Dan Case}
+Struktur kondisi SWITCH DAN CASE digunakan saat penyelesaian dari persoalan dengan jumlah kondisi yang banyak. Struktur ini dapat memeriksa nilai suatu variabel dengan SWITCH dan memeriksa kondisi dengan CASE. Contoh:
+\begin{lstlisting}
+switch ($var) {
+case '1' : statement-1; break;
+case '2' : statement-2; break;
+....
+}
+\end{lstlisting}
+Berikut contoh penggunaan kondisi SWITCH dan CASE. Buatlah file dengan nama\textbf{ swicase.php}:
+\begin{lstlisting}
+<?php
+$day =date ("D");
+switch ($day) {
+    case 'Sun' : $hari= "Minggu" ; break;
+    case 'Mon' : $hari= "Senin" ; break;
+    case 'Tue' : $hari= "Selasa" ; break;
+    case 'Wed' : $hari= "Rabu" ; break;
+    case 'Thu' : $hari= "Kamis" ; break;
+    case 'Fri' : $hari= "Jum'at" ; break;
+    case 'Sat' : $hari= "Sabtu" ; break;
+    default: $hari = "Kiamat" ;
+}
+echo "Hari ini hari <b>$hari</b>";
+?>
+\end{lstlisting}
+
+\subsubsection{Struktur Perulangan For}
+Struktur perulangan digunakan dalam kondisi membatasi perulangan. sebagai contoh disini kita mengulang kalimat "Semoga buku ini bermanfaat" sebanyak 50 kali. Buatlah file dengan nama \textbf{for.php}
+\begin{lstlisting}
+<?php
+for ($i= 1; $i <= 50; $i++)
+{
+   echo "Semoga buku ini bermanfaat";
+   echo "<br />";
+}
+?>
+\end{lstlisting}
+
+\subsubsection{Struktur Perulangan While}
+Struktur perulangan while digunakan pada saat banyaknya perulangan tidak dapat kita pastikan.
+Disini kita mengulang angka  1 sampai 14 sebagai contoh:  Buatlah file dengan nama \textbf{while.php}
+\begin{lstlisting}
+<?php
+$i=1;
+while ($i <= 14)
+{
+  echo "$i";
+  echo "<br />";
+  $i=$i+1;
+}
+?>
+\end{lstlisting}
+
+\subsubsection{Struktur Perulangan Do While}
+Struktur Do While sebenernya lanjutan dari perulangan While, perbedaan keduanya dilihat dari posisi pengecakan kondisi. Apabila perulangan While kondisi yang dicek di awal maka perulangan Do While di akhir perulangan. Disini kita mengulang angka  1 sampai 14 sebagai contoh:  Buatlah file dengan nama \textbf{dowhile.php}
+\begin{lstlisting}
+<?php
+$i=1;
+do
+{
+  echo "$i";
+  echo "<br />";
+  $i=$i+1;
+} while ($i <= 10);
+?>
+\end{lstlisting}
+
+\subsubsection{Struktur Perulangan Foreach}
+Array adalah sebuah tipe data yang sering digunakan dalam membuat program menggunakan PHP. Kemampuan array dalam menyimpan banyak data dalam satu variabel akan sangat berguna untuk menyederhanakan dan menghemat penggunaan variabel. Perulangan Foreach adalah perulangan khusus untuk membaca nilai dari array. Buatlah file dengan nama \textbf{foreach.php}
+\begin{lstlisting}
+<?php
+$manusia = array("Luqman","Fajri","Ahmad","Fahmi","Mister");
+
+foreach ($manusia as $val)
+{
+   echo "$value";
+   echo "<br />";
+}
+?>
+\end{lstlisting}
+
+\subsubsection{Struktur Break Dan Continue}
+Struktur \textbf{BREAK} dan \textbf{CONTINUE} sering digunakan dalam berbagai pekerjaan. Kedua struktur tersebut digunakan untuk mengatur bagaimana jalan dari pengulangan. Struktur \textbf{Break} digunakan untuk menghentikan jalan dari pengulangan sedangkan \textbf{continue} digunakan untuk menlanjutkan ke lankah selanjutnya tanpa menjalankan sisa perintah di dalam skrip pengulangan. Buatlah file dengan nama \textbf{breconti.php}
+\begin{lstlisting}
+<?php
+ 
+for ($i=1; $i <10 ; $i++) {
+    if ($i == 5)
+       continue;
+    if ($i == 8)
+       break;
+    echo "$i ";
+}
+ 
+?>
+\end{lstlisting}
+Jadi dari skrip diatas dapat disimpulkan bahwa perintah  \textbf{continue} akan melanjutkan proses pengulangan dan perintah \textbf{break} akan menghentikan proses. Dalam proses keduanya maka tidak akan muncul angka 5 dan 8 dalam proses tersebut.
 \subsection{Fungsi}
 Fungsi adalah serangkaian kode yang terdapat kegunaan khusus dan tertentu, dengan adanya fungsi ini pemrograman dapat dipermudah karena tidak harus menulis berulang-ulang rangkian kode yang sama. Demikian juga dalam pengembangan, jika terjadi kesalahan atau perbaikan kode maka pemrogram hanya dapat melakukan perbaikan pada fungsi tertentu saja, tidak perlu melakukan perbaikan pada banyak kode. Contoh:
 \begin{lstlisting}
 $tanggal = date(“format”);
 \end{lstlisting}
+
+
 
 \section{Koneksi Dengan Database MySQL}
 Caranya buatlah file PHP dengan nama koneksi.php selanjutnya simpan file PHP tersebut di dalam directory localhost kita.
