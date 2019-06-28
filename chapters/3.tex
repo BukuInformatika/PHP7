@@ -360,21 +360,6 @@ Fungsi adalah serangkaian kode yang terdapat kegunaan khusus dan tertentu, denga
 $tanggal = date(“format”);
 \end{lstlisting}
 
-
-
-\section{Koneksi Dengan Database MySQL}
-Caranya buatlah file PHP dengan nama koneksi.php selanjutnya simpan file PHP tersebut di dalam directory localhost kita.
-\begin{lstlisting}
-<?php 
-// isi nama host, username mysql, dan password mysql kita
-mysqli_connect("localhost","root","");
- 
-// isikan dengan nama database yang akan di hubungkan
-mysqli_select_db("test");
-?>
-\end{lstlisting}
-Seperti penjelasan diatas function connect() isikan nama host kita, username mysql dan password mysql kita. Fungsi select db adalah fungsi yang di gunakan PHP untuk memilih database yang ingin kita hubungkan. Jadi kita tinggal memasukan nama database yang akan digunakan kita tinggal memasukkan file koneksi tersebut ke projek yang ada di localhost. 
-
 \section{Perulangan}
 Struktur perulangan (atau dalam bahasa inggris disebut dengan loop) adalah sebuah instruksi program yang bertujuan untuk mengulang beberapa baris perintah. Dalam merancang ini perulangan kode program, kita setidaknya harus mengetahui 3 komponen, yaitu kondisi awal dari perulangan, perintah program yang akan diulang, serta kondisi akhir dimana perulangan akan berhenti.
 \par
@@ -428,125 +413,6 @@ html>
 \item Action dalam sebuah form bertanggung jawab untuk menentukan dimana data akan diolah. Biasanya action di dalam PHP digunakan untuk mengolah inputan yang diberikan. Jika action dikosongkan dapat dipastikan halaman yang sama pada prosesnya.
 \item Submit bertugas sebagai penanda pengiriman data dari form input yang diberikan. Jika tombol submit ditekan maka data dari form input akan dikirim kemudian diproses oleh atribut action yang digunakan.
 \end{enumerate}
-
-
-\section{Array Dan Fungsi}
-Array mempunyai variabel khusus yang memiliki beberapa nilai sedangkan variabelnya hanya satu yaitu \textbf{array} akan tetapi nilainya dapat banyak. Variabel array hanya satu karena variabel tersebut mempunyai indeks. Indeks tersebut dapat berupa angka atau teks. Indeks tersebut dapat secara otomatis diisi oleh program dan bisa juga ditentukan oleh programmer.  Buatlah file dengan nama \textbf{array1.php}.
-\begin{lstlisting}
-<?php
-$makna = array("Luqman","Galih","Akbar")
-$kawan[1] = "Luqman";
-$kawan[2] = "Galih";
-$kawan[3] = "Akbar";
-?>
-\end{lstlisting}
-Untuk mengakses array yaitu dengan cara menuliskan indeksnya setelah variabel. Buatlah file dengan nama \textbf{array2.php}.
-\begin{lstlisting}
-$makna = array("Bagus","Didi","Asep","Ichsan","Tita");
-echo $makna[3]; // akan menampilkan Ichsan
-\end{lstlisting}
-
-\subsection{Array Asosiatif}
-Array asosiatif adalah array tetapi indeksnya bukan berupa angka namun berupa teks. Buatlah file dengan nama \textbf{arrayaso.php}.
-\begin{lstlisting}
-<?php
-$data = array ("nama"=>"Luqman", "jenis_kelamin"=>"Pria", "umur"=>22);
-echo $data['nama'] . '<br/>';
-echo $data['jenis_kelamin'] . '<br/>';
-echo $data['umur'] . '<br/>';
-?>
-\end{lstlisting}
-
-\subsection{Array Multidimensi}
-Array multidimensi adalah array yang ada dalam array itu sendiri. Dalam array tersebut dapat berisi ditambahkan beberapa array lagi. Array multidimensi ini dapat memudahkan membuat sebuah program dikarenakan bisa membuat beberapa array sekaligus sehingga memangkas beberapa perintah operasi.
-Buatlah file dengan nama \textbf{arraymulti.php}.
-\begin{lstlisting}
-<?php
-$data = array
-  (array ( "nama_kawan"=>"Luqman", "jenis_kelamin"=>"Pria", "umur"=>22),
-   array ( "nama_kawan"=>"Ahmad", "jenis_kelamin"=>"Pria", "umur"=>22),
-   array ( "nama_kawan"=>"Bung", "jenis_kelamin"=>"Pria", "umur"=>25)
-  );
-for ($i=0; $i<sizeof($data); $i++)
-{
-  echo $data[$i]['nama'] . '<br/>';
-  echo $data[$i]['jenis_kelamin'] . '<br/>';
-  echo $data[$i]['umur'] . '<br/>';
-  echo '<br/>';
-}
-?>
-\end{lstlisting} 
-Fungsi-fungsi Array dalam PHP terdapat banyak bahkan lebih dari 70 untuk menggunakan memanipulasi array. Untuk melihat fungsi array apa saja yang tersedia dapat dilihat di website https://www.php.net/manual/en/ref.array.php.
-
-\subsection{Fungsi}
-Disini kita akan mencoba beberapa fungsi yang dapat dipakai.
-\subsubsection{Menghitung Panjang String}
-Untuk dapat menghitung jumlah karakter dalam sebuah string kita dapat menggunakan fungsi \textbf{strlen}. Buatlah file dengan nama \textbf{hitung.php}.
-\begin{lstlisting}
-<?php
-$jumlah_kata = 'Test';
-echo 'Jumlah huruf <b>' . $jumlah_kata .'</b> adalah ' . strlen($jumlah_kata);
-?>
-\end{lstlisting}
-
-\subsubsection{Include Dan Require}
-Untuk dapat menggunakan fungsi serta data yang berulang-ulang PHP memberikan sebuah kemudahan yang dapat meringkas pekerjaan dan meminimalkan kesalahan dalam membuat sebuah program. Penulisan program dalam PHP dapat mengambil data atau perintah yang ada pada file lain yang sama dengan perintah operasinya. Buatlah file dengan nama \textbf{teks.php}.
-\begin{lstlisting}
-<?php
-$teks = 'Masih kosong "teks.php" <br />';
-?> 
-\end{lstlisting}
-Selanjutnya kita buat file dengan nama \textbf{include.php}.
-\begin{lstlisting}
-<?php
-include 'teks.php';
-echo $teks;
-echo 'hehe "include.php"';
-?>
-\end{lstlisting}
-
-\subsubsection{Memecah String}
-Untuk dapat memecah string atau memisahkan string dapat menggunakan perintah \textbf{explode()} dengan sintaks sebagai berikut: \textbf{explode(pola, string, batas)}. 
-\begin{enumerate}
-\item \textbf{pola} adalah karakter yang akan dijadikan pemisah
-\item \textbf{string} adalah sebuah data yang akan diproses
-\item \textbf{batas} adalah jumlah pecahan yang akn diambil
-\end{enumerate}
-Buatlah file dengan nama \textbf{include.php}.
-\begin{lstlisting}
-<?php
-$data = 'Luqman, Pria, l.nurfajri@gmail, 023122222';
-$dipecah = explode(',',$data,2); // 2 adalah jumlah pecahan yang akan diproses
-for ($i=0; $i<=3; $i++)
-{
-  echo  "Pecahan $i = " . $dipecah[$i] . '<br>';
-};
-?>
-\end{lstlisting}
-
-\subsubsection{Mengubah Kapitalisasi Huruf}
-Disaat kita membutuhkan untuk mengubah kapitalisasi huruf menjadi huruf besar dan kecil semua atau kecil di awal kalimat, maka PHP memnpunyai fungsi-fungsi tersebut yang kita tinggal gunakan yaitu: \textbf{strtoupper()}, \textbf{strtolower()}, \textbf{ucfirst()}, dan \textbf{ucwords()}. 
-\begin{enumerate}
-\item \textbf{strtoupper()} adalah fungsi yang digunakan untuk mengubah huruf kecil ke huruf kapital
-\item \textbf{strtolower()} adalah fungsi yang digunakan untuk mengubah huruf kapital ke huruf kecil
-\item \textbf{ucfirst()} adalah untuk mengubah menjadi huruf kapital pada awal kalimat
-\item \textbf{ucwords()} adalah fungsi yang digunakan untuk mengubah huruf kecil menjadi kapital pada setiap awal kata
-\end{enumerate}
-Buatlah file dengan nama \textbf{str.php}.
-\begin{lstlisting}
-<?php
-$teks = 'Ini kalimat yang diproses oleh fungsi-fungsi kapitalisasi string. Ini juga kalimat lainnya. Silakan lihat hasil yang ditampilkan.';
-echo '<p><u>Kalimat asli:</u> <br/>';
-echo "$teks</p>";
-echo '<p><u>Diubah menjadi huruf kapital semua:</u> <br/>';
-echo strtoupper("$teks</p>");
-echo '<p><u>Diubah menjadi huruf kecil semua:</u> <br/>';
-echo strtolower("$teks</p>");
-echo '<p><u>Diubah menjadi huruf kapital di awal kalimat:</u> <br/>';
-echo ucfirst("$teks</p>");echo '<p><u>Diubah menjadi huruf kapital di setiap awal kata:</u> <br/>';
-echo ucwords("$teks</p>");
-?>
-\end{lstlisting}
 
 \section{String Dan Tanggal}
 String adalah kumpulan dari karakter dalam PHP. Karakter dalam PHP ada 256. PHP tidak mendukung native unicode. Untuk dapat menuliskan sebuah string dalam PHP, kita dapat menggunakan 3 cara, yaitu:
@@ -992,6 +858,19 @@ Keterangan:
 \item test\_direktori adalah direktori yang lama;
 \item direktori\_test adalah direktori yang baru.
 \end{enumerate}
+
+\section{Koneksi Dengan Database MySQL}
+Caranya buatlah file PHP dengan nama koneksi.php selanjutnya simpan file PHP tersebut di dalam directory localhost kita.
+\begin{lstlisting}
+<?php 
+// isi nama host, username mysql, dan password mysql kita
+mysqli_connect("localhost","root","");
+ 
+// isikan dengan nama database yang akan di hubungkan
+mysqli_select_db("test");
+?>
+\end{lstlisting}
+Seperti penjelasan diatas function connect() isikan nama host kita, username mysql dan password mysql kita. Fungsi select db adalah fungsi yang di gunakan PHP untuk memilih database yang ingin kita hubungkan. Jadi kita tinggal memasukan nama database yang akan digunakan kita tinggal memasukkan file koneksi tersebut ke projek yang ada di localhost. 
 
 \section{Cookie dan Session}
 Dalam php kita kenal session dan cookies yang digunakan untuk menyimpan informasi pengguna. Secara umum memang sulit dibedakan karena dari faktor fungsinya bisa dikatakan sama. Cookies adalah informasi yang dapat disimpan di komputer kita dengan bantuan browser. 
