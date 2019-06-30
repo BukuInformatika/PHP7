@@ -21,3 +21,113 @@ Terdapat 2 (dua) jenis perintah SQL, yaitu:
 \item DELETE
 \end{itemize}
 \end{enumerate}
+
+\subsection{Membuat Database}
+Untuk membuat database MySQL kita hanya menggunakan cmd atau command promt, yaitu:
+\begin{itemize}
+\item Disini kita dapat menekan tombol keyboard (windows + r) dan ketikan cmd dan muncul gambar
+
+\begin{figure}[ht]
+\centerline{\includegraphics[width=1\textwidth]
+{figures/cmd}}
+\caption{}
+\label{cmd}
+\end{figure}
+
+\item Jika sudah, selanjutnya kita ketikan perintah cd..
+
+\begin{figure}[ht]
+\centerline{\includegraphics[width=1\textwidth]
+{figures/cd1}}
+\caption{}
+\label{cd1}
+\end{figure}
+
+\item Tekan tombol enter, lalu ketikan perintah cd.. 
+
+\begin{figure}[ht]
+\centerline{\includegraphics[width=1\textwidth]
+{figures/cd2}}
+\caption{}
+\label{cd2}
+\end{figure}
+
+\item Setelah muncul, kita ketikan cd xampp/mysql/bin
+
+\begin{figure}[ht]
+\centerline{\includegraphics[width=1\textwidth]
+{figures/cd3}}
+\caption{}
+\label{cd3}
+\end{figure}
+
+\item Setelah itu kita ketikan mysql -u root -p jika ada Enter Password enter saja karena secara default password kita kosong
+
+\begin{figure}[ht]
+\centerline{\includegraphics[width=1\textwidth]
+{figures/cd5}}
+\caption{}
+\label{cd5}
+\end{figure}
+
+\item Jika sudah, kita dapat membuat database terlebih dahulu dengan mengetikan kode
+
+\begin{lstlisting}
+CREATE DATABASE php7;
+\end{lstlisting}
+
+\begin{figure}[ht]
+\centerline{\includegraphics[width=1\textwidth]
+{figures/cd6}}
+\caption{}
+\label{cd6}
+\end{figure}
+
+\end{itemize}
+
+Bentuk perintah diatas digunakan untuk membuat sebuah database baru dengan nama php7. Aturan dalam penamaan pada umumnya database sama seperti aturan dengan penamaan sebuah variabel, kita bebas mengkombinasikan huruf, angka, dan underscore (\_). Akan tetapi, jika database yang akan kita buat sudah ada maka akan tampil pesan error.
+
+\subsection{Menampilkan Database}
+Untuk melihat apa saja database yang sudah kita buat dapat ketikan perintah sebagai berikut:
+\begin{lstlisting}
+SHOW DATABASES;
+\end{lstlisting}
+
+ \begin{figure}[ht]
+\centerline{\includegraphics[width=1\textwidth]
+{figures/show}}
+\caption{}
+\label{show}
+  \end{figure}
+
+\subsection{Membuka Database}
+Kita harus membuka database MySQL yang ingin kita gunakan, atau mengaktifkanya dengan perintah USE. Silahkan ketik perintah sebagai berikut:
+\begin{lstlisting}
+USE php7;
+\end{lstlisting}
+Jika benar maka seharusnya tampil 'Database changed', artinya kita menggunakan database yang baru saja dibuat.
+ \begin{figure}[ht]
+\centerline{\includegraphics[width=1\textwidth]
+{figures/use}}
+\caption{}
+\label{use}
+  \end{figure}
+
+\subsection{Menghapus Database}
+Setelah perintah-perintah dasar mengenaii cara pembuatan database lalu bagaimana cara untuk menghapus database itu sendiri. Menghapus database menggunakan perintah DROP, perintah DROP digunakan untuk menghapus databse dan seluruh isi atau informasi yang ada di dalam database tersebut. Silahkan ketikan perintah sebagai berikut untuk menghapus database:
+\begin{lstlisting}
+DROP DATABASE php7;
+\end{lstlisting}
+Jika sudah benar, maka seharusnya akan tampil pesan sebagai berikut:
+\begin{lstlisting}
+Query OK, 0 rows affected (2.41 sec)
+\end{lstlisting}
+Jika memang sesuai maka itu artinya maka database kita sudah terhapus. Untuk lebih jelasnya silahkan lihat gambar berikut:
+ \begin{figure}[ht]
+\centerline{\includegraphics[width=1\textwidth]
+{figures/drop}}
+\caption{}
+\label{drop}
+  \end{figure}
+
+
