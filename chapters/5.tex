@@ -130,4 +130,64 @@ Jika memang sesuai maka itu artinya maka database kita sudah terhapus. Untuk leb
 \label{drop}
   \end{figure}
 
+\subsection{Membuat Tabel}
+Untuk dapat membuat tabel kita harus pilih terlebih dahulu database mana yang akan kita gunakan. Contoh database yang akan kita gunakan adalah perusahan. Cara memilihnya kita gunakan perintah use.
+\begin{lstlisting}
+use nama_database
+\end{lstlisting}
+Karena kita akan menggunakan database perusahaan, maka kita mengetikan
+\begin{lstlisting}
+use perusahaan
+\end{lstlisting}
+Jika benar akan mucul tulisan database changed. setelah itu kita siap untuk membuat tabel. Struktur dalam pembuatan tabel sebagai berikut:
+\begin{lstlisting}
+Create table [nama tabel] (
+nama field 1 type data,
+nama field 2 type data,,
+... nama field n);
+\end{lstlisting}
+Contoh apabila kita ingin membuat tabel dengan nama pegawai dengan 5 field sebagai berikut:
+\begin{lstlisting}
+CREATE TABLE pegawai(
+id INT NOT NULL PRIMARY KEY,
+nama_pegawai VARCHAR(30) NOT NULL,
+jenis_kelamin VARCHAR(10) NOT NULL,
+alamat VARCHAR(30) NOT NULL,
+jabatan VARCHAR(20) NOT NULL
+);
+\end{lstlisting}
+\begin{figure}[ht]
+\centerline{\includegraphics[width=1\textwidth]
+{figures/create_table}}
+\caption{}
+\label{create}
+\end{figure}
+Untuk saran, penamaan tabel atau field jangan pakai spasi.
+
+\subsection{Melihat Tabel}
+Untuk melihat tabel kita dapat menggunakan perintah
+\begin{lstlisting}
+show tables;
+\end{lstlisting}
+
+Lalu untuk melihat isi dari tabel kita dapat meggunakan perintah
+\begin{lstlisting}
+desc [nama tabel];
+\end{lstlisting}
+Sebagai contoh kita menggunakan tabel pegawai maka perintahnya
+\begin{lstlisting}
+desc pegawai;
+\end{lstlisting}
+
+\begin{figure}[ht]
+\centerline{\includegraphics[width=1\textwidth]
+{figures/lihat_tabel}}
+\caption{}
+\label{lihat}
+\end{figure}
+
+
+
+
+
 
