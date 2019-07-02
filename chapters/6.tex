@@ -1,4 +1,4 @@
-\section{E-Logbook}
+\section{Aplikasi E-Logbook}
 E-Logbook adalah sebuah buku elektronik untuk mencatat catatan/dokumen penting secara detail setiap aktivitas yang berisi masalah-masalah yang membutuhkan tindak lanjut dari pihak yang terlibat dalam satu hari penuh. Seluruh pegawai sebaiknya membaca buku ini agar mengetahui kegiatan, kerusakan, dan target pekerjaan apa saja yang dilakukan hari sebelumnya. Ada beberapa manfaat e-logbook antara lain:
 \begin{enumerate}
 \item bahan bukti untuk merekap seluruh aktivitas
@@ -17,6 +17,107 @@ Hal yang perlu di isi dalam e-logbook ini antara lain:
 \item Target pekerjaan
 \end{enumerate}
 
+\subsection{Merancang Database}
+Untuk membuat sebuah aplikasi secara sederhana, langkah pertama yang dilakukan adalah merancang tabel-tabel database. Secara sederhana, struktur database dapat dilihat sebagai berikut:
+\begin{table}[h]
+\caption{Tabel Logbook }
+\centering
+\begin{tabular}{ |p{2cm}|p{1cm}|p{1cm}|p{5cm}| }
+ \hline
+ \textbf{Nama Field} & \textbf{Tipe} & \textbf{Panjang} & \textbf{Keterangan}\\
+ \hline
+id\_logbook & int & 10 & primary key dan auto increment\\
+ \hline
+tanggal & date & - & tanggal pada logbook\\
+ \hline
+petugas & varchar & 100 & nama petugas yang dinas pada hari tersebut\\
+ \hline
+vendor & varchar & 100 & nama vendor yang dinas pada hari tersebut\\
+ \hline
+penerbangan & varchar & 100 & daftar penerbangan pada hari tersebut\\
+ \hline
+kegiatan & varchar & 500 & full kegiatan pegawai padasatu hari\\
+ \hline
+point_kerusakan & varchar & 200 & daftar alat yang rusak sampai hari tersebut\\
+ \hline
+target_pekerjaan & varchar & 200 & target pekerjaan alat yang rusak sampai hari tersebut\\
+ \hline
+id\_user & tinyint & 1 & id user admin\\
+ \hline
+\end{tabular}
+\end{table}
+Tabel logbook digunakan untuk mencatat seluruh kegiatan pegawai dan beberapa hal penting lainnya.
+ \begin{table}[h]
+\caption{Tabel Pegawai}
+\centering
+\begin{tabular}{ |p{2cm}|p{1cm}|p{1cm}|p{5cm}| }
+ \hline
+ \textbf{Nama Field} & \textbf{Tipe} & \textbf{Panjang} & \textbf{Keterangan}\\
+ \hline
+id\_pegawai & int & 10 & primary key dan auto increment\\
+ \hline
+pegawai & varchar & 100 & daftar nama pegawai\\
+ \hline
+\end{tabular}
+\end{table}
+Tabel pegawai digunakan untuk mendata daftar pegawai.
+ \begin{table}[h]
+\caption{Tabel User}
+\centering
+\begin{tabular}{ |p{2cm}|p{1cm}|p{1cm}|p{5cm}| }
+ \hline
+ \textbf{Nama Field} & \textbf{Tipe} & \textbf{Panjang} & \textbf{Keterangan}\\
+ \hline
+id\_user & tinyint & 2 & primary key dan auto increment\\
+ \hline
+username & varchar & 30 & username user\\
+ \hline
+password & varchar & 35 & password user\\
+ \hline
+nama & varchar & 50 & nama user\\
+ \hline
+alamat & varchar & 150 & alamat user\\
+ \hline
+hp & varchar & 20 & nomor handphone user\\
+ \hline
+level & tinyint & 1 & level user\\
+ \hline
+\end{tabular}
+\end{table}
+Tabel user adalah tabel yang mendata admin untuk masuk ke sistem.
+Contoh perintah yang digunakan untuk membuat tabel logbook, yaitu:
+\begin{lstlisting}
+CREATE TABLE IF NOT EXISTS `logbook` (
+  `id_logbook` int(10) NOT NULL,
+  `tanggal` date NOT NULL,
+  `petugas` varchar(100) NOT NULL,
+  `vendor` varchar(100) NOT NULL,
+  `penerbangan` varchar(100) NOT NULL,
+  `kegiatan` varchar(500) NOT NULL,
+  `point_kerusakan` varchar(200) NOT NULL,
+  `target_pekerjaan` varchar(200) NOT NULL,
+  `id_user` tinyint(1) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+\end{lstlisting}
+Contoh perintah yang digunakan untuk tabel pegawai, yaitu:
+\begin{lstlisting}
+CREATE TABLE IF NOT EXISTS `pegawai` (
+  `id_pegawai` int(10) NOT NULL,
+  `pegawai` varchar(100) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+\end{lstlisting}
+Contoh perintah yang digunakan untuk tabel user, yaitu:
+\begin{lstlisting}
+CREATE TABLE IF NOT EXISTS `user` (
+  `id_user` tinyint(2) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(35) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `alamat` varchar(150) NOT NULL,
+  `hp` varchar(20) NOT NULL,
+  `level` tinyint(1) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+\end{lstlisting}
 \section{Pemrograman Berorientasi Objek Dalam PHP }
 PHP pada awalnya hanya sekumpulan script sederhana. Dalam perkembangannya, dapat ditambahkan berbagai fitur pemrograman berorientasi objek. Hal ini dimulai sejak PHP 4. Dengan lahirnya PHP 5, fitur-fitur pemrograman berorientasi objek semakin mantap dan semakin cepat. Dengan PHP 7, script yang menggunakan konsep object-oriented akan lebih cepat dan lebih efisien.
 \par
