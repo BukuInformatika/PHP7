@@ -1855,8 +1855,7 @@ M. Yusril Helmi Setyawan
 
 {\locfont Penyunting:}\\
 Syafrial Fachrie Pane\\
-Khaera Tunnisa\\ 
-Diana Asri Wijayanti\\
+Luqman Nurfajri\\
 \vskip6.5pt
 
 {\locfont Desain sampul dan Tata letak:}\\
