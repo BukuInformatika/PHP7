@@ -1,17 +1,12 @@
-<!-- Contoh Tipe data Objek -->
-
 <?php
-	class objek {
-		function counter(){
-			return 5;
-		}
-		function do_pesan(){
-			echo "Cetak Pesan.";
-		}
-	}
 
-	$test = new objek;
-	$test->do_pesan();
-	echo "</br>";
-	echo $test->counter(); 
+class pesan{
+    
+    var $str;  
+}
+ 
+
+$message = new pesan();
+$message->str="Hallo Dunia"; 
+echo $message->str; 
 ?>
