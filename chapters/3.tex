@@ -9,6 +9,12 @@ ECHO “Hello World”;
 EchO “Hello World”;
 ?>
 \end{lstlisting}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1]{figures/hello1}
+\caption{Hello Word}
+\label{helloword}
+\end{figure}
 Akan tetapi, PHP membedakan huruf besar dan huruf kecil (case sensitive) untuk penamaan variabel, sehingga akan dianggap sebagai variabel yang berbeda. Sering kali error terjadi dikarenakan salah menuliskan nama variabel, yang seharusnya menggunakan huruf kecil, ditulis dengan huruf besar.
 \begin{lstlisting}
 <?php
@@ -16,6 +22,12 @@ $luqman="Luqman";
 echo $Luqman; // Notice: Undefined variable: Luqman
 ?>
 \end{lstlisting}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1]{figures/luqman}
+\caption{Case Sensitive}
+\label{case}
+\end{figure}
 Untuk mengatasi perbedaan ini, disarankan menggunakan huruf kecil untuk seluruh kode PHP, termasuk variabel, fungsi maupun class. Jika membutuhkan nama variabel yang terdiri dari 2 kata, karakter spasi bisa digantikan dengan underscore.
 \subsection{Karakter Spasi dan Tab dalam PHP}
 Dalam PHP, karakter seperti spasi dan tab diabaikan di dalam eksekusi program PHP. Anda boleh mencoba sebuah statement menjadi beberapa baris, atau menyatukan beberapa statement dalam sebuah baris yang lumayan panjang. Seperti contoh berikut:
@@ -24,6 +36,12 @@ Dalam PHP, karakter seperti spasi dan tab diabaikan di dalam eksekusi program PH
 echo "Saya belajar"; echo "Saya mengerti"; $nama="Men";
 ?>
 \end{lstlisting}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1]{figures/saya_belajar}
+\caption{Statement 1}
+\label{statement1}
+\end{figure}
 Baris statement itu sama dengan
  \begin{lstlisting}
 <?php
@@ -32,6 +50,12 @@ Baris statement itu sama dengan
      $nama = "Men";
 ?>
 \end{lstlisting}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1]{figures/saya_belajar1}
+\caption{Statement 2}
+\label{statement2}
+\end{figure}
 Walaupun contoh yang pertama lebih menghemat baris, namun lebih disarankan untuk contoh kedua, karena kita mengusahakan agar setiap statement berada dalam satu baris saja, dan menambahkan beberapa spasi di awal untuk memudahkan membaca kode program.
 \par
 Keuntungan penghematan baris dan beberapa byte dari sebuah file PHP tidak akan sebanding dengan mencoba memahami kode program yang dibuat dalam beberapa hari kedepan. Menambahkan sebagian komentar pada bagian kode yang lebih rumit sebagai penjelasan juga sangat disarankan.
@@ -40,29 +64,44 @@ Keuntungan penghematan baris dan beberapa byte dari sebuah file PHP tidak akan s
   \item Berikut merupakan contoh dokumen HTML yang akan dihasilkan dengan menggunakan program/script PHP dalam embedded script
     Ditampilkan dibawah ini  :
     \lstinputlisting[firstline=1, lastline=12]{src/embedded_script.php}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1]{figures/embedded}
+\caption{Embedded Script}
+\label{embedded}
+\end{figure}
 Script diatas menunjukkan contoh script PHP sederhana yang disebut dengan script embedded yang di sisipkan diantara tag-tag HTML. Script tersebut digunakan apabila isi dari suatu dokumen HTML diinginkan dari hasil eksekusi suatu script PHP. jika dilihat dari source-nya dengan menggunakan view source pada web browser maka tampilannya akan berupa seperti berikut
     \lstinputlisting[firstline=14, lastline=22]{src/embedded_script.php}
 Source dokumen HTML yang tampil berupa dokumen HTML yang tidak lagi dari script PHP yang berisi script PHP karena semua menjadi tag HTML, karena pada saat dieksekusi maka bukan scriptnya yang dikirim tetapi eksekusi dari script tersebut yang dikirim 
 \subsection{Non Embedded}
    \item Script PHP dibawah ini merupakan script murni dari pembuatan program dengan menggunakan PHP, tag dokumen HTML yang dihasilkan untuk membuat dokumen merupakan bagian dari script PHP. di tampilkan dibawah ini:
   \lstinputlisting[firstline=24, lastline=35]{src/embedded_script.php}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1]{figures/non-embedded}
+\caption{Non Embedded Script}
+\label{nonembedded}
+\end{figure}
 dan dibawah ini merupakan source dokumen HTML dari tampilan kode diatas  
   \lstinputlisting[firstline=38, lastline=40]{src/embedded_script.php}
 Jika diperhatikan dokumen HTML tersebut tidak beraturan ditampilkan. Hal tersebut tidak menjadi masalah, yang penting adalah browser web dapat menampilkannya, karena dokumen tag HTML ini murni dihasilkan dari script PHP. 
 
 \section{Variabel dan Tipe Data}
 \subsection{Variabel}
-Variabel adalah tempat penympanan data, variabel memiliki nama. dalam pemograman variabel merupakan tempat penyimpanan data didalam memori komputer. Didalam PHP nama variabel diawali dengan karakter dollar diikuti dengan huruf sebagai karakter pertama setelah dollar. kemudian kombinasi karakter dan angka. Tidak boleh ada spasi dan tanda baca dalam penamaannya. kecuali karakter (garis bawah, under score).berikut merupakan penulisan variabel yang benar:
+Variabel adalah tempat penympanan data, variabel memiliki nama. dalam pemograman variabel merupakan tempat penyimpanan data didalam memori komputer. Didalam PHP nama variabel diawali dengan karakter dollar diikuti dengan huruf sebagai karakter pertama setelah dollar. kemudian kombinasi karakter dan angka. Tidak boleh ada spasi dan tanda baca dalam penamaannya. Kecuali karakter (garis bawah, under score).berikut merupakan penulisan variabel yang benar:
 \lstinputlisting[firstline=31, lastline=34]{src/tag_awal_akhir.php}
 \begin{lstlisting}
 <?php
-$npm="1154054";
-$nama=' Luqman Nurfajri';
-echo"npm : ".npm ."<br>;
-echo"nama: &nama";
+   $nama="Luqman Nurfajri";
+   echo $nama;
 ?>
 \end{lstlisting}
-
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1]{figures/variabel}
+\caption{Variabel}
+\label{variabel}
+\end{figure}
 \subsection{Tipe Data}
 Data yang diolah oleh suatu program memiliki berbagai jenis ada data yang menunjukkan jumlah dan menunjukkan nilai benar dan salah, atau tulisan. Jenis tipe data dalam PHP secara mendasar dibedakan menjadi 3 macam yang disebut sebagai tipe data primitif. Tipe data primitif yang diolah oleh PHP:
 \begin{enumerate}
@@ -105,26 +144,75 @@ Notasi bilangan hekasdesimal dituliskan : (n)16
 Tipe data float (disebut juga tipe data floating point, atau real number) adalah tipe data angka yang memiliki bagian desimal di akhir angka, atau memiliki floating point (floating point adalah istilah dalam bahasa inggris untuk menyebut tanda “titik” yang menandakan bilangan desimal). Contoh angka float adalah seperti: 0,9 atau 3,14. Tipe data float cocok digunakan untuk variabel yang akan berisi angka pecahan, seperti nilai IPK, hasil pembagian, atau hasil komputasi numerik yang angkanya tidak bisa ditampung oleh data integer.
 \subsection{Tipe Data String}
 Tipe data String adalah tipe data untuk teks yang merupakan gabungan huruf, angka, whitespace (spasi), dan berbagai karakter. Fungsi ini digunakan untuk membuat identifier String/teks. Data string ditulis dengan mengapit data string tersebut dengan tanda petik tunggal atau tanda petik ganda. Tanda petik tunggal umumnya digunakan sebagai konstanta string.
+\begin{lstlisting}
+<?php
+$nama="Nama: Man";
+ 
+$alamat="Alamat: Bandung";
+ 
+echo $nama; echo "<br \>";
+echo $alamat; echo "<br \>";
+?>
+\end{lstlisting}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1]{figures/string}
+\caption{Tipe Data String}
+\label{string}
+\end{figure}
 \subsection{Tipe Data Boolean}
 Tipe data boolean sebenarnya sangat sederhana. Tipe data ini hanya bisa diisi dengan salah satu dari 2 nilai: TRUE atau FALSE. Tipe data boolean banyak dipakai dalam percabangan kode program, atau untuk memutuskan apa yang harus dijalankan pada sebuah kondisi if else.
+\begin{lstlisting}
+<?php
+$cocok=true;
+$tidak_cocok=false;
+ 
+echo "Cocok = $cocok, Tidak Cocok = $tidak_cocok";
+// hasil output: cocok = 1, tidak_cocok = kosong
+?>
+\end{lstlisting}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1]{figures/boolean}
+\caption{Tipe Data Boolean }
+\label{boolean}
+\end{figure}
+
 \subsection{Tipe Data Objek}
 Tipe data dari objek merupakan tipe data baru, merupakan pengembangan PHP untuk mendukung program berorientasi objek. Tipe data objek adalah tipe data yang didalamnya mempunyai data dan method. data yang dipunyai oleh suatu objek populer dengan nama atribut dan method suatu objek umumnya berupa suatu fungsi. 
 
 Data objek didefinisikan dengan membuat definisi kelas terlebih dahulu. Suatu variabel yang bertipe objek diinisialisasi (dideklarasi) dengan menggunakan perintah new kemudian nama objek (berupa nama kelas objek) berikut contohnya:
 \lstinputlisting[firstline=1, lastline=17]{src/tipeDataObjek.php}
 
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1]{figures/objek}
+\caption{Tipe Data Objek }
+\label{objek}
+\end{figure}
 
 \section{Operator PHP}
 Pada PHP, terdapat banyak operator  beberapa yang sering digunakan.
 \subsection{Operator Perbandigan}
-Seperti namanya, operator perbandingan digunakan untuk membandingkan beberapa buah nilai pada PHP dan hasilnya berupa booelan true yang berarti benar atau false yang berarti salah.
+Seperti namanya, operator perbandingan digunakan untuk membandingkan beberapa buah nilai pada PHP dan hasilnya berupa booelan true yang berarti benar atau false yang berarti salah. Jadi jika nilai a dan b sama, maka operator menyatakan benar.
 Contoh:
+
 \begin{lstlisting}
 <?php
-if ($_POST['password'] == 'admin')
+$a = 10;
+$b = 10;
+ 
+if($a === $b)
 {
-	echo 'Login sukses';
+     echo 'Benar';
 }
+else
+{
+     echo 'Salah';
+}
+ 
+?>
 \end{lstlisting}
 
 \subsection{Operator PHP Increment dan Decrement}
@@ -132,41 +220,67 @@ Operator ini digunakan untuk menambahkan atau mengurangi nilai sebanyak 1 pada s
 \subsection{Perbedaan Pre Increment dan Post Increment}
 Pada pre increment, nilai variabel akan ditambahkan 1 baru kemudian siap digunakan, sebaliknya, untuk  post increment, gunakan dulu nilai variabel kemudian baru ditambahkan dengan 1.
 Contoh 1:
+
 \begin{lstlisting}
 <?php
-$nomor = 1;
-while($nomor <= 5) {
-	echo $nomor++;
-}
+ $nomor = 1 ;
+ while ( $nomor <= 5 ) {
+ echo $nomor ++;
+ }
+?>
 \end{lstlisting}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1]{figures/pre_increment}
+\caption{Pre Increment }
+\label{pre}
+\end{figure}
 Contoh diatas akan menghasilkan angka 12345.
 
 Contoh 2:
 \begin{lstlisting}
 <?php
-$nomor = 1;
-while($nomor <= 5) {
-	echo ++$nomor;
-}
+ $nomor = 1 ;
+ while ( $nomor <= 5 ) {
+ echo ++$nomor ;
+ }
+?>
 \end{lstlisting}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1]{figures/post_increment}
+\caption{Post Increment}
+\label{post}
+\end{figure}
+
 Contoh diatas akan menghasilkan 23456.
-Lihat, perbedaanya terdapat pada ++ sebelum dan sesudah $nomor. 
+Lihat, perbedaanya terdapat pada ++ sebelum dan sesudah \$nomor. 
 
 \subsection{Operator Assignment PHP}
 Sesuai namanya operator assignment ini digunakan untuk memberikan nilai pada suatu variabel. Operator dasarnya adalah tanda sama dengan ( = ). Dalam praktiknya, operator ini sering digunakan ketika menjumlahkan nilai pada suatu perulangan, seperti ketika menjumlahkan data hasil query database.
 Contoh:
 \begin{lstlisting}
 <?php
-$sql 	= 'SELECT * FROM sales';
-$query 	= mysqli_query($sql);
-$total	= 0;
-while($row = mysqli_fetch_array($query))
-{
-	$total += $row['jml_bayar'];
-}
+$x = 3;
+$y = 9;
+$z = 27;
+ 
+echo "$x = $x, $y = $y, $z = $z";
+echo "<br />";
+ 
+$x = $y = $z+10;
+echo "$x = $x, $y = $y, $z = $z";
 ?>
 \end{lstlisting}
 
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1]{figures/assignment}
+\caption{Assignment}
+\label{assignment}
+\end{figure}
 
 \section{Lingkup Variabel}
 Variabel Scope (atau ruang lingkup variabel) adalah jangkauan kode program dimana perintah program masih bisa mengakses sebuah variabel. Variabel menunjukkan keberlakuan dan dikenalinya suatu variabel didalam script. Suatu variabel yang didefinisikan didalam sebuah fungsi maka variabel tersebut hanya akan dikenali dan digunakan hanya dalam fungsi tersebut variabel ini dikenal sebagai variabel lokal. karena hanya dikenal pada fungsi tempat variabel tersebut dinyatakan dan digunakan.
